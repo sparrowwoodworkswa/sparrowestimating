@@ -1,0 +1,6 @@
+Year,Annual escalation,Factor to current year,Source
+2022,,1.139327,Add a rate here if we load jobs from 2021 or earlier
+2023,0.010,1.128047,Construction Analytics (Zarenski): residential inflation under 1% in 2023
+2024,0.050,1.074330,"Verisk 360Value: total reconstruction cost +5.2%, Apr 2024 to Apr 2025"
+2025,0.035,1.038000,"Verisk 360Value: residential +3.5%, Jan 2025 to Jan 2026"
+2026,0.038,1.000000,"Verisk 360Value: residential +3.8%, Jul 2025 to Jul 2026. Mortenson Seattle +3.5% over 12 mo (Q3 2026) as a check"
