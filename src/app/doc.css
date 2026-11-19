@@ -1,0 +1,46 @@
+/* Sparrow house style for client- and sub-facing documents (bid packages). Editorial, drawing-set discipline. */
+.doc {
+  --ink: #1a1a18; --mid: #6a6a64; --rule: #d8d8d2; --tint: #f0efea; --acc: #8a6a3b;
+  max-width: 880px; margin: 0 auto; padding: 40px 32px 80px; background: #fff; color: var(--ink);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 15px; line-height: 1.55;
+}
+body:has(.doc) { background: #fff; }
+.doc .toolbar { display: flex; justify-content: flex-end; margin-bottom: 16px; }
+.doc .docbtn { font: inherit; font-weight: 600; background: var(--acc); color: #fff; border: 0; border-radius: 20px; padding: 10px 20px; cursor: pointer; }
+.doc .doc-head { display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 1.5px solid var(--ink); padding-bottom: 14px; margin-bottom: 28px; gap: 16px; }
+.doc .wordmark { font-weight: 700; letter-spacing: 0.08em; font-size: 15px; }
+.doc .doc-logo { height: 44px; width: auto; }
+.doc .right { text-align: right; }
+.doc .muted { color: var(--mid); }
+.doc .small { font-size: 12px; }
+.doc .lab { color: var(--acc); font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 10px; }
+.doc h1 { font-size: 40px; line-height: 1.05; margin: 0 0 6px; letter-spacing: -0.015em; }
+.doc .lede { font-size: 19px; color: var(--mid); margin: 0 0 8px; }
+.doc .fields { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--rule); margin: 22px 0; }
+.doc .fields div { padding: 10px 12px 10px 0; border-bottom: 1px solid var(--rule); }
+.doc .fields span { display: block; font-size: 11px; color: var(--mid); text-transform: uppercase; letter-spacing: 0.06em; }
+.doc section { border-top: 1.5px solid var(--ink); padding: 18px 0 8px; margin-top: 22px; break-inside: avoid-page; }
+.doc section.two { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+.doc ul, .doc ol { padding-left: 18px; margin: 0; }
+.doc li { margin-bottom: 6px; }
+.doc .tbl { width: 100%; border-collapse: collapse; font-size: 13px; }
+.doc .tbl th { text-align: left; font-size: 11px; color: var(--mid); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 500; border-bottom: 1px solid var(--ink); padding: 6px 8px 6px 0; }
+.doc .tbl td { border-bottom: 1px solid var(--rule); padding: 7px 8px 7px 0; vertical-align: top; }
+.doc .tbl .n { text-align: right; white-space: nowrap; }
+.doc .tbl td.blank { min-width: 80px; border-bottom: 1px solid var(--mid); }
+.doc .bidform .formgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 28px; }
+.doc .bidform .formgrid .wide { grid-column: 1 / -1; }
+.doc .bidform span { display: block; font-size: 12px; color: var(--mid); }
+.doc .bidform i { display: block; border-bottom: 1px solid var(--ink); height: 26px; }
+.doc .doc-foot { border-top: 1px solid var(--rule); margin-top: 40px; padding-top: 12px; }
+@media (max-width: 640px) {
+  .doc { padding: 20px 16px 60px; }
+  .doc .fields { grid-template-columns: 1fr 1fr; }
+  .doc section.two, .doc .bidform .formgrid { grid-template-columns: 1fr; }
+}
+@media print {
+  .noprint { display: none !important; }
+  .doc { padding: 0; max-width: none; font-size: 12px; }
+  .doc h1 { font-size: 30px; }
+  @page { size: letter; margin: 0.6in; }
+}
