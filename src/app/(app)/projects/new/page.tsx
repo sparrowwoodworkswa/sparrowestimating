@@ -1,14 +1,13 @@
-import { createProject } from "@/app/actions";
 import { FINISH_LEVELS } from "@/lib/csi";
 import { getSettings } from "@/lib/data";
 import { Dropzone } from "@/components/Dropzone";
-import { SubmitButton } from "@/components/SubmitButton";
+import { NewProjectForm } from "@/components/NewProjectForm";
 
 export default async function NewProject() {
   const s = await getSettings();
   const hasKey = !!process.env.ANTHROPIC_API_KEY;
   return (
-    <form action={createProject} className="stack" style={{ maxWidth: 920 }}>
+    <NewProjectForm blobEnabled={!!process.env.BLOB_READ_WRITE_TOKEN} hasKey={hasKey}>
       <div className="page-head">
         <div>
           <h1 className="headline">New estimate</h1>
@@ -30,6 +29,19 @@ export default async function NewProject() {
       </div>
 
       <div className="card">
+        <h3>Fee structure</h3>
+        <p className="small muted" style={{ marginTop: 0 }}>Which markups apply to this job? You can change them later on the estimate.</p>
+        <div className="grid cols-2">
+          {(s.company.feePresets ?? []).map((f) => (
+            <label key={f.key} className="card filled check" style={{ alignItems: "flex-start", padding: 16 }}>
+              <input type="radio" name="feePreset" value={f.key} required style={{ marginTop: 3 }} />
+              <span><b>{f.label}</b><br /><span className="small muted">{f.description}</span></span>
+            </label>
+          ))}
+        </div>
+      </div>
+
+      <div className="card">
         <h3>Project</h3>
         <div className="form-grid">
           <label className="field"><span>Project name</span><input className="input" name="name" placeholder="Read from the title block if blank" /></label>
@@ -44,7 +56,14 @@ export default async function NewProject() {
               {FINISH_LEVELS.map((f) => <option key={f}>{f}</option>)}
             </select>
           </label>
-          <label className="field"><span>WA sales tax % for the site</span><input className="input" name="taxPct" defaultValue={s.markups.taxPct} inputMode="decimal" /></label>
+          <label className="field">
+            <span>Superintendent</span>
+            <select className="input" name="superintendent" defaultValue="">
+              <option value="">Not assigned yet</option>
+              {s.company.team.filter((m) => m.superintendent).map((m) => <option key={m.name}>{m.name}</option>)}
+            </select>
+          </label>
+          <label className="field"><span>WA sales tax % for the site (Osius structure)</span><input className="input" name="taxPct" defaultValue={s.markups.taxPct} inputMode="decimal" /></label>
         </div>
         <label className="field" style={{ marginTop: 16 }}>
           <span>Notes for the estimator (owner-supplied items, exclusions, finish basis, anything the plans don&apos;t say)</span>
@@ -52,13 +71,6 @@ export default async function NewProject() {
         </label>
       </div>
 
-      <div className="row">
-        <label className="check">
-          <input type="checkbox" name="start" value="1" defaultChecked={hasKey} disabled={!hasKey} /> Start the ROM as soon as plans upload
-        </label>
-        <div className="spacer" />
-        <SubmitButton icon="auto_awesome">Create project</SubmitButton>
-      </div>
-    </form>
+    </NewProjectForm>
   );
 }

@@ -133,4 +133,12 @@ CREATE TABLE IF NOT EXISTS proposal_events (
   detail text NOT NULL DEFAULT '',
   created_at timestamptz NOT NULL DEFAULT now()
 );
+ALTER TABLE ai_runs ADD COLUMN IF NOT EXISTS pending jsonb NOT NULL DEFAULT '[]';
+ALTER TABLE ai_runs ADD COLUMN IF NOT EXISTS secret text NOT NULL DEFAULT '';
+ALTER TABLE ai_runs ADD COLUMN IF NOT EXISTS origin text NOT NULL DEFAULT '';
+ALTER TABLE catalog ADD COLUMN IF NOT EXISTS cost_code text NOT NULL DEFAULT '';
+ALTER TABLE catalog ADD COLUMN IF NOT EXISTS finish_level text NOT NULL DEFAULT '';
+ALTER TABLE projects ADD COLUMN IF NOT EXISTS superintendent text NOT NULL DEFAULT '';
+ALTER TABLE projects ADD COLUMN IF NOT EXISTS cost_year integer;
+ALTER TABLE projects ADD COLUMN IF NOT EXISTS alias text NOT NULL DEFAULT '';
 `;

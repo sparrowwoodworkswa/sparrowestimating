@@ -37,8 +37,7 @@ export const LaborRole = z.enum([
 ]);
 
 export const LineSchema = z.object({
-  division: z.string().describe("Two-digit CSI division 01-16"),
-  csiCode: z.string().describe("e.g. 03 30 00"),
+  costCode: z.string().describe("Sparrow cost code from the list given for this package, e.g. 300.1 or 1500.2"),
   description: z.string(),
   scope: z.string().describe("Scope we priced: what is included, in one or two plain sentences"),
   qty: z.number(),
@@ -50,7 +49,7 @@ export const LineSchema = z.object({
   isAllowance: z.boolean(),
   trade: z.string().describe("Sparrow for self-performed, else the sub trade name"),
   note: z.string().describe("Takeoff basis, sheet refs, assumptions. Say 'scaled' when undimensioned"),
-  pricingBasis: z.string().describe("Where the unit price came from: catalog item + vendor, past project, or 'market estimate'"),
+  pricingBasis: z.string().describe("Source tag and where the rate came from, e.g. 'Sub bid: JB Concrete 2026', 'Actual: Koivu 300.1, escalated to 2026', 'Sparrow estimate: Osius', or 'Claude takeoff: market rate'"),
 });
 export type LineOut = z.infer<typeof LineSchema>;
 
@@ -69,7 +68,7 @@ export const TradePackageSchema = z.object({
 export const PackageResultSchema = z.object({
   lines: z.array(LineSchema),
   tradePackages: z.array(TradePackageSchema),
-  emptyDivisions: z.array(z.object({ division: z.string(), reason: z.string() })),
+  emptyCodes: z.array(z.object({ group: z.string().describe("Cost code group with no scope, e.g. 704 Roofing"), reason: z.string() })),
 });
 export type PackageResult = z.infer<typeof PackageResultSchema>;
 

@@ -15,6 +15,7 @@ export default async function EstimatePage({ params }: { params: Promise<{ id: s
       laborRates={settings.laborRates}
       catalog={catalog.map((c) => ({ id: c.id, trade: c.trade, item: c.item, unit: c.unit, unitPrice: c.unitPrice, vendor: c.vendor }))}
       defaultMarkups={settings.markups}
+      feePresets={settings.company.feePresets ?? []}
     />
   );
 }

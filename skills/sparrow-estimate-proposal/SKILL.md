@@ -5,6 +5,8 @@ description: "Estimate a Sparrow Woodworks project from uploaded plans and produ
 
 # Sparrow estimate + proposal
 
+> **Cost codes:** use Sparrow's own Master Cost Code List from the repo `CLAUDE.md`, not CSI MasterFormat. Where this skill says CSI, read Sparrow cost codes and divisions. Ask which fee structure applies (Osius 1.5% + 15% + site tax, or control estimate 18% fee + 9% Kitsap tax) if Mike hasn't said. Proposals show the core team only unless he says otherwise.
+
 Use when Mike uploads a drawing set (pricing set, SD/DD, permit set) and wants it estimated and turned into a proposal. Output matches the Osius Accessory Building proposal (Nov 2026).
 
 ## 0. Before starting

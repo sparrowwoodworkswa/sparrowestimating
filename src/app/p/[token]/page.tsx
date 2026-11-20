@@ -228,7 +228,7 @@ export default async function PublicProposal({ params }: { params: Promise<{ tok
               {nonZero.length > 0 && (
                 <div className="breakdown">
                   <span className="mono dark">Cost breakdown</span>
-                  <p className="small muted">Builder cost by CSI division, from the estimate.</p>
+                  <p className="small muted">Builder cost by division, from the estimate.</p>
                   <div className="chart">
                     {nonZero.map((d) => (
                       <a key={d.code} className="bar" href={`#div-${d.code}`}>
@@ -237,7 +237,7 @@ export default async function PublicProposal({ params }: { params: Promise<{ tok
                       </a>
                     ))}
                     <div className="axis"><span /><div>{ticks.map((v) => <i key={v} style={{ left: `${(v / maxDiv) * 100}%` }}>{v === 0 ? "0" : v >= 1e6 ? `$${v / 1e6}M` : `$${v / 1e3}k`}</i>)}</div></div>
-                    <div className="chart-foot"><span>CSI division</span><span>Total builder cost <b>{usd(t.direct)}</b></span></div>
+                    <div className="chart-foot"><span>Division</span><span>Total builder cost <b>{usd(t.direct)}</b></span></div>
                   </div>
                   {empty.length > 0 && <p className="small muted">Divisions {empty.join(", ")} carry no scope.</p>}
                 </div>
@@ -322,7 +322,7 @@ export default async function PublicProposal({ params }: { params: Promise<{ tok
               <span className="tag">{n("team")} · Your team</span>
               <h2>The people building {p.name}</h2>
               <div className="team">
-                {c.team.map((tm) => (
+                {c.team.filter((tm) => pr.team.includes(tm.name)).map((tm) => (
                   <div key={tm.name} className="person">
                     {tm.photo ? <img src={tm.photo} alt={tm.name} /> : <div className="ph">Photo</div>}
                     <h3>{tm.name}</h3>

@@ -45,7 +45,7 @@ export default async function ProposalTab({ params }: { params: Promise<{ id: st
       </div>
 
       {p.proposal ? (
-        <ProposalEditor projectId={p.id} initial={resolveProposal(p, p.proposal, settings.company)} revision={p.revision} shareUrl={`/p/${p.shareToken}`} />
+        <ProposalEditor projectId={p.id} initial={resolveProposal(p, p.proposal, settings.company)} revision={p.revision} shareUrl={`/p/${p.shareToken}`} team={settings.company.team.map((m) => ({ name: m.name, role: m.role, core: !!m.core }))} />
       ) : (
         <div className="card empty">
           <span className="material-symbols-outlined">description</span>

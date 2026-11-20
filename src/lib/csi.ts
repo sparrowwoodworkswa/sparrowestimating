@@ -1,21 +1,7 @@
-export const DIVISIONS: { code: string; name: string }[] = [
-  { code: "01", name: "General Requirements" },
-  { code: "02", name: "Site Construction" },
-  { code: "03", name: "Concrete" },
-  { code: "04", name: "Masonry" },
-  { code: "05", name: "Metals" },
-  { code: "06", name: "Wood & Plastics" },
-  { code: "07", name: "Thermal & Moisture Protection" },
-  { code: "08", name: "Doors & Windows" },
-  { code: "09", name: "Finishes" },
-  { code: "10", name: "Specialties" },
-  { code: "11", name: "Equipment" },
-  { code: "12", name: "Furnishings" },
-  { code: "13", name: "Special Construction" },
-  { code: "14", name: "Conveying Systems" },
-  { code: "15", name: "Mechanical (Plumbing & HVAC)" },
-  { code: "16", name: "Electrical" },
-];
+import { SPARROW_DIVISIONS } from "./costcodes";
+
+// Sparrow's own 16 divisions (Master Primary Control Estimate), not CSI MasterFormat.
+export const DIVISIONS: { code: string; name: string }[] = SPARROW_DIVISIONS;
 
 export const divisionName = (code: string) => DIVISIONS.find((d) => d.code === code)?.name ?? code;
 

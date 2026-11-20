@@ -1,7 +1,8 @@
 "use client";
 import { useMemo, useState, useTransition } from "react";
-import type { EstimateLine, Markups } from "@/db/schema";
+import type { EstimateLine, Markups, FeePreset } from "@/db/schema";
 import { DIVISIONS } from "@/lib/csi";
+import { COST_CODES, costCodeLabel, divisionOfCode } from "@/lib/costcodes";
 import { computeTotals, lineParts, lineUnitCost, usd, num } from "@/lib/totals";
 import { updateLine, addLine, deleteLine, updateMarkups, addLineFromCatalog, type LinePatch } from "@/app/actions";
 
@@ -13,12 +14,14 @@ export function EstimateEditor({
   laborRates,
   catalog,
   defaultMarkups,
+  feePresets,
 }: {
   project: { id: number; totalSf: number | null; markups: Markups; name: string; contractTotalOverride: number | null };
   initialLines: EstimateLine[];
   laborRates: Record<string, number>;
   catalog: Cat[];
   defaultMarkups: Markups;
+  feePresets: FeePreset[];
 }) {
   const [lines, setLines] = useState(initialLines);
   const [m, setM] = useState<Markups>(project.markups);
@@ -44,10 +47,11 @@ export function EstimateEditor({
 
   return (
     <div className="stack">
+      <datalist id="costcodes">{COST_CODES.map((c) => <option key={c.code} value={c.code}>{c.label}</option>)}</datalist>
       <div className="grid" style={{ gridTemplateColumns: "minmax(0, 1.4fr) minmax(300px, 1fr)", alignItems: "start" }}>
         <div className="card">
           <div className="card-head">
-            <h3>Cost by CSI division</h3>
+            <h3>Cost by division</h3>
             <span className="small muted">{t.lineCount} lines · {num(t.laborHours)} self-performed hrs</span>
           </div>
           {t.divisions.map((d) => (
@@ -105,6 +109,18 @@ export function EstimateEditor({
           <div className="row small muted" style={{ marginTop: 10, justifyContent: "space-between" }}>
             <span>{sf ? `${usd(t.total / sf)}/SF on ${num(sf)} SF` : "Add SF on the Plans tab for $/SF"}</span>
             <button className="btn text small" onClick={() => { setM(defaultMarkups); startSave(async () => { await updateMarkups(project.id, defaultMarkups); }); }}>Reset to company defaults</button>
+          </div>
+          <div className="chip-set" style={{ marginTop: 10 }}>
+            <span className="small muted" style={{ alignSelf: "center" }}>Fee structure:</span>
+            {feePresets.map((f) => {
+              const next: Markups = { ...f.markups, taxPct: f.markups.taxPct ?? (m.taxPct === 9 && f.markups.taxPct === null ? defaultMarkups.taxPct : m.taxPct) };
+              const on = next.insurancePct === m.insurancePct && next.feePct === m.feePct && next.overheadPct === m.overheadPct && next.taxPct === m.taxPct && next.contingencyPct === m.contingencyPct;
+              return (
+                <button key={f.key} className={`chip${on ? " accent" : ""}`} style={{ cursor: "pointer" }} title={f.description} onClick={() => { setM(next); startSave(async () => { await updateMarkups(project.id, next); }); }}>
+                  {on && <span className="material-symbols-outlined" style={{ fontSize: 16 }}>check</span>}{f.label}
+                </button>
+              );
+            })}
           </div>
         </div>
       </div>
@@ -171,7 +187,8 @@ export function EstimateEditor({
                                 <Cell value={l.description} onSave={(v) => patch(l.id, { description: v })} bold />
                                 <Cell value={l.scope} onSave={(v) => patch(l.id, { scope: v })} area placeholder="Scope we priced" />
                                 <div className="row" style={{ gap: 6, padding: "0 6px" }}>
-                                  <Cell value={l.csiCode} onSave={(v) => patch(l.id, { csiCode: v })} small placeholder="CSI code" width={84} />
+                                  <Cell value={l.csiCode} onSave={(v) => patch(l.id, { csiCode: v, ...(divisionOfCode(v) ? { division: divisionOfCode(v)! } : {}) })} small placeholder="Cost code" width={84} list="costcodes" />
+                                  <span className="small muted">{costCodeLabel(l.csiCode)}</span>
                                   <label className="check small muted"><input type="checkbox" checked={l.isAllowance} onChange={(e) => patch(l.id, { isAllowance: e.target.checked })} />Allowance</label>
                                   {l.source === "ai" && l.aiOriginal && lineParts({ ...l, ...(l.aiOriginal as object) }).total !== p.total && <span className="chip info" title="You changed Claude's number. The learning step uses this.">edited</span>}
                                   {l.source === "manual" && <span className="chip neutral">added</span>}
@@ -244,14 +261,14 @@ export function EstimateEditor({
   );
 }
 
-function Cell({ value, onSave, bold, area, small, placeholder, width }: { value: string; onSave: (v: string) => void; bold?: boolean; area?: boolean; small?: boolean; placeholder?: string; width?: number }) {
+function Cell({ value, onSave, bold, area, small, placeholder, width, list }: { value: string; onSave: (v: string) => void; bold?: boolean; area?: boolean; small?: boolean; placeholder?: string; width?: number; list?: string }) {
   const [v, setV] = useState(value);
   const style = { fontWeight: bold ? 500 : 400, fontSize: small ? 12 : 13, color: small ? "var(--md-on-surface-variant)" : undefined, width };
   const commit = () => v !== value && onSave(v);
   return area ? (
     <textarea value={v} placeholder={placeholder} style={style} onChange={(e) => setV(e.target.value)} onBlur={commit} rows={1} />
   ) : (
-    <input value={v} placeholder={placeholder} style={style} onChange={(e) => setV(e.target.value)} onBlur={commit} onKeyDown={(e) => e.key === "Enter" && (e.target as HTMLInputElement).blur()} />
+    <input value={v} placeholder={placeholder} style={style} list={list} onChange={(e) => setV(e.target.value)} onBlur={commit} onKeyDown={(e) => e.key === "Enter" && (e.target as HTMLInputElement).blur()} />
   );
 }
 

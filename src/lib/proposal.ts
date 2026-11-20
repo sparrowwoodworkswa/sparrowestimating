@@ -21,6 +21,7 @@ export function resolveProposal(p: Project, pr: ProposalContent, c: Company): Re
     retainer: pr.retainer ?? "",
     closing: pr.closing ?? c.closing ?? "We look forward to building with you.",
     hidden: pr.hidden ?? [],
+    team: pr.team?.length ? pr.team : c.team.filter((m) => m.core || (p.superintendent && m.name === p.superintendent)).map((m) => m.name),
     milestones: pr.milestones.map((m) => ({ ...m, detail: m.detail ?? "" })),
   };
 }

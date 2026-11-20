@@ -41,7 +41,7 @@ export async function runLearn(projectId: number, runId: number) {
       .map((p) => `- ${p.trade}: ROM ${usd(p.estimatedPrice)} vs bid ${usd(p.bidAmount)} from ${p.bidVendor || "sub"}${p.bidNotes ? ` (${p.bidNotes})` : ""}`);
 
     const r = await structured({
-      system: await buildSystem(settings),
+      system: await buildSystem(settings, projectId),
       content: [
         {
           type: "text",
@@ -67,7 +67,7 @@ Write lessons that will make the next ROM more accurate and more likely to win: 
       effort: "high",
       maxTokens: 16000,
     });
-    addUsage(ctx, r.usage);
+    await addUsage(ctx, r.usage);
 
     if (r.data.lessons.length)
       await db.insert(schema.lessons).values(r.data.lessons.map((l) => ({ scope: l.scope, text: l.text, status: "proposed", source: "learned", projectId })));

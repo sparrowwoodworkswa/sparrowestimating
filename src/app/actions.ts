@@ -8,7 +8,9 @@ import { getDb, schema } from "@/db";
 import type { Company, Markups, ProposalContent, Material } from "@/db/schema";
 import { getSettings, getProject } from "@/lib/data";
 import { putFile, deleteFile } from "@/lib/storage";
-import { startRun, runEstimate, runProposalOnly } from "@/lib/ai/pipeline";
+import { divisionOfCode } from "@/lib/costcodes";
+import { startRun, kickStep, runProposalOnly, finishRun } from "@/lib/ai/pipeline";
+import { headers } from "next/headers";
 import { runLearn } from "@/lib/ai/learn";
 
 const s = (f: FormData, k: string) => String(f.get(k) ?? "").trim();
@@ -22,14 +24,23 @@ async function touch(projectId: number) {
   await db.update(schema.projects).set({ updatedAt: new Date() }).where(eq(schema.projects.id, projectId));
 }
 
+/** The address this request came in on; ROM steps call back to it. */
+async function requestOrigin() {
+  const h = await headers();
+  const host = h.get("x-forwarded-host") ?? h.get("host");
+  const proto = h.get("x-forwarded-proto") ?? (host?.startsWith("localhost") ? "http" : "https");
+  return host ? `${proto}://${host}` : "";
+}
+
 // ---------------- projects ----------------
 
 export async function createProject(form: FormData) {
   const db = await getDb();
   const settings = await getSettings();
-  const markups: Markups = { ...settings.markups };
+  const preset = settings.company.feePresets?.find((f) => f.key === s(form, "feePreset"));
+  const markups: Markups = preset ? { ...preset.markups, taxPct: preset.markups.taxPct ?? settings.markups.taxPct } : { ...settings.markups };
   const tax = n(form, "taxPct");
-  if (tax != null) markups.taxPct = tax;
+  if (tax != null && (!preset || preset.markups.taxPct == null)) markups.taxPct = tax;
   const [p] = await db
     .insert(schema.projects)
     .values({
@@ -41,14 +52,16 @@ export async function createProject(form: FormData) {
       finishLevel: s(form, "finishLevel") || "mid-high",
       totalSf: n(form, "totalSf"),
       ownerNotes: s(form, "ownerNotes"),
+      superintendent: s(form, "superintendent"),
+      costYear: new Date().getFullYear(),
       markups,
       shareToken: nanoid(16),
     })
     .returning();
   await saveUploads(p.id, form.getAll("files") as File[]);
   if (s(form, "start") === "1" && process.env.ANTHROPIC_API_KEY) {
-    const runId = await startRun(p.id, "estimate");
-    after(() => runEstimate(p.id, runId));
+    const runId = await startRun(p.id, "estimate", await requestOrigin());
+    after(() => kickStep(runId, "analysis").catch((e) => finishRun({ runId, projectId: 0, usage: { input: 0, output: 0, cacheRead: 0 } }, e)));
   }
   redirect(`/projects/${p.id}`);
 }
@@ -62,6 +75,47 @@ async function saveUploads(projectId: number, files: File[]) {
     const kind = /\.(png|jpe?g|webp)$/i.test(file.name) ? "image" : /spec/i.test(file.name) ? "specs" : "plans";
     await db.insert(schema.planFiles).values({ projectId, filename: file.name, storageKey: key, sizeBytes: buf.length, kind });
   }
+}
+
+/** Records plan files the browser already uploaded to Vercel Blob. */
+export async function registerPlanFiles(projectId: number, files: { filename: string; url: string; size: number }[]) {
+  const db = await getDb();
+  for (const f of files) {
+    if (!/^https:\/\/[a-z0-9.-]+\.public\.blob\.vercel-storage\.com\//i.test(f.url)) continue;
+    const kind = /\.(png|jpe?g|webp)$/i.test(f.filename) ? "image" : /spec/i.test(f.filename) ? "specs" : "plans";
+    await db.insert(schema.planFiles).values({ projectId, filename: f.filename, storageKey: f.url, sizeBytes: f.size, kind });
+  }
+  await touch(projectId);
+  revalidatePath(`/projects/${projectId}`);
+}
+
+/** Creates the project without files and returns its id (the browser uploads plans next). */
+export async function createProjectRecord(form: FormData): Promise<number> {
+  const db = await getDb();
+  const settings = await getSettings();
+  const preset = settings.company.feePresets?.find((f) => f.key === s(form, "feePreset"));
+  const markups: Markups = preset ? { ...preset.markups, taxPct: preset.markups.taxPct ?? settings.markups.taxPct } : { ...settings.markups };
+  const tax = n(form, "taxPct");
+  if (tax != null && (!preset || preset.markups.taxPct == null)) markups.taxPct = tax;
+  const [p] = await db
+    .insert(schema.projects)
+    .values({
+      name: s(form, "name") || "Untitled project",
+      client: s(form, "client"),
+      architect: s(form, "architect"),
+      address: s(form, "address"),
+      city: s(form, "city"),
+      finishLevel: s(form, "finishLevel") || "mid-high",
+      totalSf: n(form, "totalSf"),
+      ownerNotes: s(form, "ownerNotes"),
+      superintendent: s(form, "superintendent"),
+      costYear: new Date().getFullYear(),
+      markups,
+      shareToken: nanoid(16),
+    })
+    .returning();
+  revalidatePath("/");
+  return p.id;
 }
 
 export async function uploadFiles(projectId: number, form: FormData) {
@@ -83,10 +137,10 @@ export async function deletePlanFile(projectId: number, fileId: number) {
 export async function updateProject(projectId: number, form: FormData) {
   const db = await getDb();
   const fields: Record<string, unknown> = {};
-  for (const k of ["name", "client", "architect", "structural", "address", "city", "designStage", "finishLevel", "ownerNotes", "outcomeNotes", "revision"]) {
+  for (const k of ["name", "client", "architect", "structural", "address", "city", "designStage", "finishLevel", "ownerNotes", "outcomeNotes", "revision", "superintendent", "alias"]) {
     if (form.has(k)) fields[k] = s(form, k);
   }
-  for (const k of ["totalSf", "conditionedSf", "competitorPrice", "actualCost", "contractTotalOverride", "directCostOverride"]) {
+  for (const k of ["totalSf", "conditionedSf", "competitorPrice", "actualCost", "contractTotalOverride", "directCostOverride", "costYear"]) {
     if (form.has(k)) fields[k] = n(form, k);
   }
   if (form.has("status")) {
@@ -123,8 +177,8 @@ export async function updateMarkups(projectId: number, m: Markups) {
 export async function startEstimate(projectId: number) {
   if (!process.env.ANTHROPIC_API_KEY) return { error: "Add ANTHROPIC_API_KEY to the environment to read plans." };
   try {
-    const runId = await startRun(projectId, "estimate");
-    after(() => runEstimate(projectId, runId));
+    const runId = await startRun(projectId, "estimate", await requestOrigin());
+    after(() => kickStep(runId, "analysis").catch((e) => finishRun({ runId, projectId: 0, usage: { input: 0, output: 0, cacheRead: 0 } }, e)));
     revalidatePath(`/projects/${projectId}`, "layout");
     return { runId };
   } catch (e) {
@@ -174,7 +228,8 @@ export type LinePatch = Partial<{
 
 export async function updateLine(lineId: number, patch: LinePatch) {
   const db = await getDb();
-  const [l] = await db.update(schema.estimateLines).set(patch).where(eq(schema.estimateLines.id, lineId)).returning();
+  const div = patch.csiCode ? divisionOfCode(patch.csiCode) : null;
+  const [l] = await db.update(schema.estimateLines).set(div ? { ...patch, division: div } : patch).where(eq(schema.estimateLines.id, lineId)).returning();
   if (l) await touch(l.projectId);
   return l;
 }
@@ -203,7 +258,8 @@ export async function addLineFromCatalog(projectId: number, catalogId: number, d
     .insert(schema.estimateLines)
     .values({
       projectId,
-      division,
+      division: (c.costCode && divisionOfCode(c.costCode)) || division,
+      csiCode: c.costCode,
       description: c.item,
       qty,
       unit: c.unit,
@@ -332,6 +388,8 @@ export async function saveCatalogItem(form: FormData) {
     quoteDate: s(form, "quoteDate"),
     region: s(form, "region") || "Kitsap / Puget Sound",
     notes: s(form, "notes"),
+    costCode: s(form, "costCode"),
+    finishLevel: s(form, "finishLevel"),
     active: true,
   };
   if (!values.trade || !values.item) return;
@@ -361,7 +419,7 @@ export async function importCatalogCsv(form: FormData) {
   const [head, ...body] = rows;
   if (!head) return;
   const idx = (name: string) => head.findIndex((h) => h.trim().toLowerCase().replace(/[\s$]+/g, "_").includes(name));
-  const ci = { trade: idx("trade"), item: idx("item"), unit: idx("unit"), price: Math.max(idx("unit_price"), idx("price")), vendor: idx("vendor"), date: idx("date"), notes: idx("note") };
+  const ci = { code: idx("cost_code"), finish: idx("finish"), trade: idx("trade"), item: idx("item"), unit: idx("unit"), price: Math.max(idx("unit_price"), idx("price")), vendor: idx("vendor"), date: idx("date"), notes: idx("note") };
   const db = await getDb();
   const values = body
     .filter((r) => r[ci.item] && r[ci.price])
@@ -373,6 +431,8 @@ export async function importCatalogCsv(form: FormData) {
       vendor: ci.vendor >= 0 ? r[ci.vendor] ?? "" : "",
       quoteDate: ci.date >= 0 ? r[ci.date] ?? "" : "",
       notes: ci.notes >= 0 ? r[ci.notes] ?? "" : "",
+      costCode: ci.code >= 0 ? r[ci.code] ?? "" : "",
+      finishLevel: ci.finish >= 0 ? r[ci.finish] ?? "" : "",
       source: "sub_quote",
     }));
   if (values.length) await db.insert(schema.catalog).values(values);

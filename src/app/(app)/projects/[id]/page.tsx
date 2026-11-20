@@ -1,7 +1,7 @@
-import { getLatestRun, getPlanFiles, getProject, getLines } from "@/lib/data";
-import { startEstimate, uploadFiles, deletePlanFile, updateProject } from "@/app/actions";
+import { getLatestRun, getPlanFiles, getProject, getLines, getSettings } from "@/lib/data";
+import { startEstimate, deletePlanFile, updateProject } from "@/app/actions";
 import { RunPanel } from "@/components/RunPanel";
-import { Dropzone } from "@/components/Dropzone";
+import { UploadMore } from "@/components/UploadMore";
 import { SubmitButton } from "@/components/SubmitButton";
 import { FINISH_LEVELS, STATUSES } from "@/lib/csi";
 import { num } from "@/lib/totals";
@@ -9,7 +9,7 @@ import { num } from "@/lib/totals";
 export default async function ProjectOverview({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   const p = (await getProject(Number(id)))!;
-  const [files, run, lines] = await Promise.all([getPlanFiles(p.id), getLatestRun(p.id), getLines(p.id)]);
+  const [files, run, lines, settings] = await Promise.all([getPlanFiles(p.id), getLatestRun(p.id), getLines(p.id), getSettings()]);
   const a = p.analysis;
   const hasKey = !!process.env.ANTHROPIC_API_KEY;
 
@@ -149,10 +149,7 @@ export default async function ProjectOverview({ params }: { params: Promise<{ id
               </li>
             ))}
           </ul>
-          <form action={uploadFiles.bind(null, p.id)} className="stack" style={{ marginTop: 12, gap: 10 }}>
-            <Dropzone name="files" />
-            <SubmitButton className="btn tonal" icon="upload">Upload</SubmitButton>
-          </form>
+          <UploadMore projectId={p.id} blobEnabled={!!process.env.BLOB_READ_WRITE_TOKEN} />
         </div>
 
         <form action={updateProject.bind(null, p.id)} className="card stack" style={{ gap: 12 }}>
@@ -164,6 +161,16 @@ export default async function ProjectOverview({ params }: { params: Promise<{ id
           <label className="field"><span>Address</span><input className="input" name="address" defaultValue={p.address} /></label>
           <label className="field"><span>City</span><input className="input" name="city" defaultValue={p.city} /></label>
           <label className="field"><span>Design stage</span><input className="input" name="designStage" defaultValue={p.designStage} /></label>
+          <div className="form-grid" style={{ gridTemplateColumns: "1fr 1fr" }}>
+            <label className="field"><span>Also known as</span><input className="input" name="alias" defaultValue={p.alias} placeholder="e.g. Goth Mansion" /></label>
+            <label className="field"><span>Cost year</span><input className="input" name="costYear" defaultValue={p.costYear ?? ""} placeholder="Year estimated or built" /></label>
+          </div>
+          <label className="field"><span>Superintendent</span>
+            <select className="input" name="superintendent" defaultValue={p.superintendent}>
+              <option value="">Not assigned yet</option>
+              {settings.company.team.filter((m) => m.superintendent).map((m) => <option key={m.name}>{m.name}</option>)}
+            </select>
+          </label>
           <div className="form-grid" style={{ gridTemplateColumns: "1fr 1fr" }}>
             <label className="field"><span>Gross SF</span><input className="input" name="totalSf" defaultValue={p.totalSf ?? ""} /></label>
             <label className="field"><span>Conditioned SF</span><input className="input" name="conditionedSf" defaultValue={p.conditionedSf ?? ""} /></label>

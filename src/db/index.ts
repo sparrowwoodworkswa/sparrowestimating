@@ -11,12 +11,16 @@ const g = globalThis as unknown as { __sparrowDb?: Promise<DB> };
 
 async function init(): Promise<DB> {
   let db: DB;
-  if (process.env.DATABASE_URL) {
+  const url = process.env.DATABASE_URL || process.env.POSTGRES_URL;
+  if (url) {
     const postgres = (await import("postgres")).default;
-    const client = postgres(process.env.DATABASE_URL, { max: 5, prepare: false });
+    const client = postgres(url, { max: 5, prepare: false });
     await client.unsafe(DDL);
     db = drizzlePostgres(client, { schema }) as unknown as DB;
   } else {
+    if (process.env.VERCEL) {
+      throw new Error("No database connected. In Vercel, open the project's Storage tab, add a Postgres database (Neon), connect it to this project, then redeploy. It sets DATABASE_URL.");
+    }
     const { PGlite } = await import("@electric-sql/pglite");
     const fs = await import("fs");
     fs.mkdirSync("./data", { recursive: true });

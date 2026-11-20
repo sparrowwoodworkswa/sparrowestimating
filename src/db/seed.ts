@@ -35,7 +35,13 @@ export const DEFAULT_COMPANY: Company = {
   website: "sparrowwoodworks.com",
   logoUrl: "/brand/logo-bird.png",
   logoFullUrl: "/brand/logo-full.png",
-  brandVersion: 2,
+  brandVersion: 3,
+  about:
+    "Sparrow is a general contractor and custom millwork shop in Indianola, WA (North Kitsap), in business since 2011. About 85% GC and 15% wood shop, about 22 people. Not design-build: most work comes from architects. Sparrow self-performs a lot: framing, cabinets, furniture and millwork. Service area: Kitsap, Jefferson, Mason, Pierce and Clallam counties and Bainbridge Island. Sparrow prefers cost-plus contracts: transparency and attention to detail over a black-box fixed bid.",
+  feePresets: [
+    { key: "osius", label: "Osius structure", description: "1.5% insurance / WA B&O + 15% fee. Sales tax looked up for the site address.", markups: { insurancePct: 1.5, overheadPct: 0, feePct: 15, contingencyPct: 0, taxPct: null } },
+    { key: "control", label: "Control estimate template", description: "2000.2 Contractor's Fee 18% + 2000.1 Kitsap County tax 9%.", markups: { insurancePct: 0, overheadPct: 0, feePct: 18, contingencyPct: 0, taxPct: 9 } },
+  ],
   filmUrl: "",
   filmHeading: "Built by hand.",
   filmBody: "Our carpenters frame and set the structure. Our wood shop builds the pieces you see and touch every day.",
@@ -81,21 +87,21 @@ export const DEFAULT_COMPANY: Company = {
     "Hazardous material testing or abatement",
   ],
   team: [
-    { name: "Mike Stuntz", role: "Owner & Founder", bio: "Fine woodworker turned builder. Founded Sparrow in 2011 and stays on every project.", photo: "/brand/team/team-mike.jpg" },
-    { name: "Tom James", role: "Operations & Project Management", bio: "Owns the budget, contract and risk. Keeps reporting open book.", photo: "/brand/team/team-tom.jpg" },
-    { name: "Riley Deering", role: "Project Manager", bio: "Former carpenter. Your day-to-day contact for schedule, subs and site.", photo: "/brand/team/team-riley.jpg" },
-    { name: "Katrina Diller", role: "Project Engineer", bio: "Handles submittals, RFIs and procurement.", photo: "/brand/team/team-katrina.jpg" },
-    { name: "Derek Crenshaw", role: "Wood Shop Manager", bio: "Former lead cabinet maker at McGraw Zecha. Builds the pieces you see and touch in our shop.", photo: "/brand/team/team-derek.jpg" },
-    { name: "Andreas Lymberopoulos", role: "Superintendent", bio: "Background in custom cabinetry and millwork. Runs site quality, safety and inspections.", photo: "/brand/team/team-andreas.jpg" },
-    { name: "Miles Koivu", role: "Superintendent", bio: "Poulsbo native with 33 years in construction, 25 of them running CW Carpentry.", photo: "/brand/team/team-miles.jpg" },
-    { name: "Cody Williams", role: "Superintendent", bio: "Kitsap native. Helped grow Clark Construction from 6 people to over 100.", photo: "/brand/team/team-cody.jpg" },
-    { name: "Berg Danielson", role: "Superintendent", bio: "Bainbridge born and raised. Years of local know-how, crew leadership and woodworking.", photo: "/brand/team/team-berg.jpg" },
+    { core: true, name: "Mike Stuntz", role: "Owner & Founder", bio: "Fine woodworker turned builder. Founded Sparrow in 2011 and stays on every project.", photo: "/brand/team/team-mike.jpg" },
+    { core: true, name: "Tom James", role: "Operations & Project Management", bio: "Owns the budget, contract and risk. Keeps reporting open book.", photo: "/brand/team/team-tom.jpg" },
+    { core: true, name: "Riley Deering", role: "Project Manager", bio: "Former carpenter. Your day-to-day contact for schedule, subs and site.", photo: "/brand/team/team-riley.jpg" },
+    { core: true, name: "Katrina Diller", role: "Project Engineer", bio: "Handles submittals, RFIs and procurement.", photo: "/brand/team/team-katrina.jpg" },
+    { core: true, name: "Derek Crenshaw", role: "Wood Shop Manager", bio: "Former lead cabinet maker at McGraw Zecha. Builds the pieces you see and touch in our shop.", photo: "/brand/team/team-derek.jpg" },
+    { superintendent: true, name: "Andreas Lymberopoulos", role: "Superintendent", bio: "Background in custom cabinetry and millwork. Runs site quality, safety and inspections.", photo: "/brand/team/team-andreas.jpg" },
+    { superintendent: true, name: "Miles Koivu", role: "Superintendent", bio: "Poulsbo native with 33 years in construction, 25 of them running CW Carpentry.", photo: "/brand/team/team-miles.jpg" },
+    { superintendent: true, name: "Cody Williams", role: "Superintendent", bio: "Kitsap native. Helped grow Clark Construction from 6 people to over 100.", photo: "/brand/team/team-cody.jpg" },
+    { superintendent: true, name: "Berg Danielson", role: "Superintendent", bio: "Bainbridge born and raised. Years of local know-how, crew leadership and woodworking.", photo: "/brand/team/team-berg.jpg" },
   ],
 };
 
-export const DEFAULT_STANDARDS = `Structure: 16 CSI MasterFormat divisions (01 General Requirements through 16 Electrical). Empty divisions get a one-line reason.
+export const DEFAULT_STANDARDS = `Cost codes: use Sparrow's own Master Cost Code List and its 16 divisions (1 General Conditions through 16 Electrical), not CSI MasterFormat. Empty cost code groups get a one-line reason.
 
-Each line: CSI code, description, qty, unit, labor hrs/unit, labor rate, material $/unit, sub $/unit, note, and "Scope we priced". Name basis-of-design products where shown.
+Each line: Sparrow cost code, description, qty, unit, labor hrs/unit, labor rate, material $/unit, sub $/unit, note, and "Scope we priced". Name basis-of-design products where shown.
 
 Labor (burdened cost/hr, Seattle area 2026): carpenter $105, superintendent $125, PM $120, PE $95. Sparrow self-performs framing, glulam, decking, sheathing, windows, siding, trim, millwork/cabinets and cleanup. Other trades are sub unit prices at Puget Sound rates.
 
@@ -103,7 +109,11 @@ Take off from dimensions; where undimensioned, scale it and say so in the note. 
 
 Allowances: tag any line with no drawings or schedule behind it (windows without a schedule, HVAC, ventilation, lighting fixtures, low voltage, specialty floors, stormwater, permit, testing, landscape).
 
-General Requirements usually include: superintendent (part-time hours over the schedule), PM, PE, permit allowance, survey, testing, toilet, temp power and protection, lift/telehandler (only the weeks the high work takes), scaffold, dumpsters, cleanup, small tools, on-site storage container.
+General Conditions usually include: superintendent (part-time hours over the schedule), PM, PE, permit allowance, survey, testing, toilet, temp power and protection, lift/telehandler (only the weeks the high work takes), scaffold, dumpsters, cleanup, small tools, on-site storage container.
+
+Cost database: before pricing, pull comparable lines with the same cost code, unit and finish level. Rate priority: Actual > Sub bid > Sparrow estimate > Claude takeoff. Note where each rate came from. Adjust older jobs for inflation so years compare fairly.
+
+Comparing to Mike's estimate: finish the takeoff first, then compare. Don't change either one unless asked. Present comparisons as an executive summary.
 
 Don't carry: ferry or island travel charges (Sparrow drives over Agate Pass), design/architectural/engineering fees, or a pre-con retainer.
 
@@ -122,12 +132,13 @@ const SEED_LESSONS: { scope: string; text: string }[] = [
 ];
 
 const HISTORICAL = [
-  { name: "Koivu Residence", client: "Koivu", architect: "Scott Shelton (drafter)", city: "Indianola", finishLevel: "mid-high", totalSf: 1344, conditionedSf: 1344, status: "complete", directCostOverride: 519758.16, contractTotalOverride: 652712.3, actualCost: 811685.02, designStage: "Control estimate 2023-09", outcomeNotes: "Built fall 2023 to early 2025. Actual billed $811,685 to 3-25-25 (direct $646,349). Excludes foundation, electrical, demo, design, permits (by owner/others). 15% fee, 9.2% tax." },
-  { name: "Overstory House", client: "Overstory", architect: "Wittman Estes", city: "Nordland (Marrowstone Is.)", finishLevel: "high", totalSf: 2485, conditionedSf: 2485, status: "complete", directCostOverride: 2978925.09, contractTotalOverride: 3737508.36, actualCost: 4612629.95, designStage: "Control estimate v2023.06.02", outcomeNotes: "Base contract billed $4,612,630 to 11-5-25, plus change orders $1,573,739 (incl. cabin remodel C#166 $511K and garage C#106 $127K). 15% fee, 9.1% Jefferson Co. tax." },
-  { name: "Forge and Make TI", client: "Forge and Make", architect: "Balance Architects PLLC", city: "Poulsbo", finishLevel: "mid-high", totalSf: 1032, conditionedSf: 1032, status: "proposal_sent", directCostOverride: 255050.25, contractTotalOverride: 325394, designStage: "Claude takeoff 2026-11-16", outcomeNotes: "Commercial TI, craft studio. 1.5% ins/B&O + 15% fee, 9.3% Poulsbo tax. MEP all allowance (design-build)." },
-  { name: "Valley Road Addition", client: "Tom Kuniholm", architect: "Tom Kuniholm Architects", structural: "Dayle B. Houk & Company", address: "9766 NE Valley Rd", city: "Bainbridge Island", finishLevel: "mid", totalSf: 938, conditionedSf: 602, status: "proposal_sent", directCostOverride: 525934.5, contractTotalOverride: 670375.57, designStage: "Permit set, Rev. 01", outcomeNotes: "Claude takeoff $670,376 vs Sparrow ROM $653,156 (20% fee). See estimates/valley-road-addition-estimate-comparison.md." },
-  { name: "DeWitt Residence", client: "Eric DeWitt", architect: "SHED Architecture & Design", city: "Port Angeles", finishLevel: "high", totalSf: 2368, conditionedSf: 1810, status: "proposal_sent", contractTotalOverride: 2938235, designStage: "Preliminary pricing set", outcomeNotes: "1,810 heated SF + 558 SF garage. 8.6% tax." },
-  { name: "Rayson Remodel / Addition", client: "Steven & Emily Rayson", architect: "Johnson Squared", structural: "Edward Jonson & Associates", city: "Hansville", finishLevel: "high", status: "proposal_sent", contractTotalOverride: 3787159, designStage: "Permit set, rev 1", outcomeNotes: "Two-story addition plus remodel of the Rastra-block house. Main house remodel about $1,402,520." },
+  { name: "Koivu Residence", client: "Koivu", architect: "Scott Shelton (drafter)", city: "Indianola", finishLevel: "mid-high", totalSf: 1344, conditionedSf: 1344, status: "complete", costYear: 2023, directCostOverride: 519758.16, contractTotalOverride: 652712.3, actualCost: 811685.02, designStage: "Control estimate 2023-09", outcomeNotes: "Benchmark. Simple house with some mid to high finishes; plan set and control estimate loaded. Built fall 2023 to early 2025 (cost year 2024 for actuals). Actual billed $811,685 to 3-25-25 (direct $646,349). Excludes foundation, electrical, demo, design, permits (by owner/others). 15% fee, 9.2% tax." },
+  { name: "Overstory House", client: "Overstory", architect: "Wittman Estes", city: "Nordland (Marrowstone Is.)", finishLevel: "high", totalSf: 2485, conditionedSf: 2485, status: "complete", costYear: 2023, directCostOverride: 2978925.09, contractTotalOverride: 3737508.36, actualCost: 4612629.95, designStage: "Control estimate v2023.06.02", outcomeNotes: "Benchmark. Finished 2025, cost-plus, high finish. Big scope change mid-job tracked in a change log. Base contract billed $4,612,630 to 11-5-25, plus change orders $1,573,739 (incl. cabin remodel C#166 $511K and garage C#106 $127K). 15% fee, 9.1% Jefferson Co. tax." },
+  { name: "Forge and Make TI", client: "Forge and Make LLC", architect: "Balance Architects PLLC", city: "Poulsbo", finishLevel: "mid-high", totalSf: 1032, conditionedSf: 1032, status: "proposal_sent", costYear: 2026, directCostOverride: 255050.25, contractTotalOverride: 325394, designStage: "Permit set, Nov 2026", outcomeNotes: "Commercial tenant improvement (craft studio). Client is the tenant, Forge and Make LLC. Laid out in CSI for now; remap to Sparrow cost codes later. 1.5% ins/B&O + 15% fee, 9.3% Poulsbo tax. MEP all allowance." },
+  { name: "Valley Road Addition", alias: "Kuniholm", client: "Tom Kuniholm", architect: "Tom Kuniholm Architects", structural: "Dayle B. Houk & Company", address: "9766 NE Valley Rd", city: "Bainbridge Island", finishLevel: "mid", totalSf: 938, conditionedSf: 602, status: "proposal_sent", costYear: 2026, superintendent: "Berg Danielson", directCostOverride: 525934.5, contractTotalOverride: 670375.57, designStage: "Permit set, Rev. 01", ownerNotes: "Tom Kuniholm is owner and architect. Owner buys appliances. Exclude landscape, A/V, furniture and abatement.", outcomeNotes: "Claude takeoff $670,376 vs Sparrow ROM $653,156 (20% fee); both in the cost database. See estimates/valley-road-addition-estimate-comparison.md." },
+  { name: "DeWitt Residence", client: "Eric DeWitt", architect: "SHED Architecture & Design", city: "Port Angeles", finishLevel: "high", totalSf: 2368, conditionedSf: 1810, status: "proposal_sent", costYear: 2026, contractTotalOverride: 2938235, designStage: "Preliminary pricing set", outcomeNotes: "New residence, same format as Osius. 1,810 heated SF + 558 SF garage. 8.6% tax." },
+  { name: "Rayson Remodel / Addition", alias: "Goth Mansion", client: "Steven & Emily Rayson", architect: "Johnson Squared", structural: "Edward Jonson & Associates", city: "Hansville", finishLevel: "mid-high", status: "proposal_sent", costYear: 2026, contractTotalOverride: 3787159, designStage: "Permit set, rev 1", outcomeNotes: "Two-story addition plus remodel of the Rastra-block house. Main house remodel about $1,402,520." },
+  { name: "Bainbridge Elevator Addition", city: "Bainbridge Island", finishLevel: "mid-high", status: "estimating", costYear: 2026, designStage: "", outcomeNotes: "Small residential elevator addition. Started with a ROM from plans." },
 ];
 
 function tradeFor(div: string): string {
@@ -159,7 +170,7 @@ export async function seedIfEmpty(db: AnyDb) {
   for (const h of HISTORICAL) {
     await db.insert(schema.projects).values({
       ...h,
-      markups: { ...DEFAULT_MARKUPS, taxPct: h.city === "Port Angeles" ? 8.6 : h.city === "Poulsbo" ? 9.3 : h.city.startsWith("Nordland") ? 9.1 : 9.2 },
+      markups: h.name === "Valley Road Addition" ? { insurancePct: 0, overheadPct: 0, feePct: 20, contingencyPct: 0, taxPct: 9.2 } : { ...DEFAULT_MARKUPS, taxPct: h.city === "Port Angeles" ? 8.6 : h.city === "Poulsbo" ? 9.3 : h.city.startsWith("Nordland") ? 9.1 : 9.2 },
       shareToken: nanoid(16),
     });
   }
@@ -167,6 +178,8 @@ export async function seedIfEmpty(db: AnyDb) {
   // Osius: full line-item estimate (builder cost $727,536, Rev C, Nov 13 2026)
   const [osius] = await db.insert(schema.projects).values({
     name: "Osius Accessory Building",
+    alias: "Osius barn",
+    costYear: 2026,
     client: "Osius",
     architect: "Coates Design",
     structural: "Artifex Engineering",
@@ -249,10 +262,12 @@ export async function seedIfEmpty(db: AnyDb) {
         unit: l.unit,
         unitPrice: l.unitPrice,
         priceType: "installed",
-        source: "estimate",
+        source: "reference",
         vendor: "Osius estimate",
         quoteDate: "2026-11",
-        notes: [l.csiCode, l.note].filter(Boolean).join(" · "),
+        costCode: l.csiCode,
+        finishLevel: "mid-high",
+        notes: l.note,
         projectId: osius.id,
       })),
   );
@@ -261,7 +276,7 @@ export async function seedIfEmpty(db: AnyDb) {
 
 /** One-time brand update for databases seeded before the logo and site colors were added. Fills only missing values. */
 async function upgradeBrand(db: AnyDb, c: Company) {
-  if ((c.brandVersion ?? 1) >= 2) return;
+  if ((c.brandVersion ?? 1) >= 3) return;
   const d = DEFAULT_COMPANY;
   const next: Company = {
     ...d,
@@ -271,8 +286,11 @@ async function upgradeBrand(db: AnyDb, c: Company) {
     email: c.email || d.email,
     address: c.address || d.address,
     benefits: c.benefits?.length ? c.benefits : d.benefits,
+    about: c.about || d.about,
+    feePresets: c.feePresets?.length ? c.feePresets : d.feePresets,
+    team: c.team.map((m) => ({ ...m, ...(d.team.find((x) => x.name === m.name) ? { core: d.team.find((x) => x.name === m.name)!.core, superintendent: d.team.find((x) => x.name === m.name)!.superintendent } : {}) })),
     colors: { ...d.colors, ...c.colors, band: c.colors.band || d.colors.band },
-    brandVersion: 2,
+    brandVersion: 3,
   };
   const { eq } = await import("drizzle-orm");
   await db.update(schema.settings).set({ company: next }).where(eq(schema.settings.id, 1));

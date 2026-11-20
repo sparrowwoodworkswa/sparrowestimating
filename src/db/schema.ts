@@ -17,9 +17,11 @@ export type Markups = {
   taxPct: number; // WA sales tax on the full contract price
 };
 
+export type FeePreset = { key: string; label: string; description: string; markups: Omit<Markups, "taxPct"> & { taxPct: number | null } };
+
 export type LaborRates = Record<string, number>; // role -> burdened $/hr
 
-export type TeamMember = { name: string; role: string; bio: string; photo: string };
+export type TeamMember = { name: string; role: string; bio: string; photo: string; core?: boolean; superintendent?: boolean };
 
 export type Company = {
   name: string;
@@ -29,7 +31,9 @@ export type Company = {
   email: string;
   website: string;
   logoUrl: string; // bird mark, used in the app bar and proposal header
-  logoFullUrl?: string; // full "sparrow / WOOD WORKS" lockup, used on the proposal cover and footer
+  logoFullUrl?: string;
+  about?: string; // who Sparrow is, for the estimator prompt
+  feePresets?: FeePreset[];
   address?: string;
   brandVersion?: number;
   filmUrl?: string; // optional YouTube link shown in the proposal's film section
@@ -92,6 +96,7 @@ export type ProposalContent = {
   retainer?: string; // e.g. "$5,000"; blank = no retainer shown
   closing?: string;
   hidden?: string[]; // section keys hidden on the client page
+  team?: string[]; // names of team members shown; default is the core team plus the project superintendent
 };
 
 export const PROPOSAL_SECTIONS: { key: string; label: string }[] = [
@@ -144,6 +149,9 @@ export const projects = pgTable("projects", {
   analysis: jsonb("analysis").$type<Analysis>(),
   proposal: jsonb("proposal").$type<ProposalContent>(),
   revision: text("revision").notNull().default("0"),
+  superintendent: text("superintendent").notNull().default(""),
+  costYear: integer("cost_year"), // year built or estimated, for escalation
+  alias: text("alias").notNull().default(""),
   shareToken: text("share_token").notNull(),
   proposalSentAt: timestamp("proposal_sent_at", { withTimezone: true }),
   decidedAt: timestamp("decided_at", { withTimezone: true }),
@@ -215,6 +223,8 @@ export const catalog = pgTable("catalog", {
   quoteDate: text("quote_date").notNull().default(""),
   notes: text("notes").notNull().default(""),
   projectId: integer("project_id"),
+  costCode: text("cost_code").notNull().default(""), // Sparrow cost code, e.g. 300.1
+  finishLevel: text("finish_level").notNull().default(""),
   active: boolean("active").notNull().default(true),
   createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
 });
@@ -240,6 +250,9 @@ export const aiRuns = pgTable("ai_runs", {
   inputTokens: integer("input_tokens").notNull().default(0),
   outputTokens: integer("output_tokens").notNull().default(0),
   cacheReadTokens: integer("cache_read_tokens").notNull().default(0),
+  pending: jsonb("pending").$type<string[]>().notNull().default([]), // work packages still pricing
+  secret: text("secret").notNull().default(""), // authorizes the run's own step requests
+  origin: text("origin").notNull().default(""), // where step requests are sent
   startedAt: timestamp("started_at", { withTimezone: true }).defaultNow().notNull(),
   finishedAt: timestamp("finished_at", { withTimezone: true }),
 });

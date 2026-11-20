@@ -8,7 +8,7 @@ import { usd } from "@/lib/totals";
 const img = (k: string) => (k.startsWith("local:") ? `/api/files/${encodeURIComponent(k)}` : k);
 type Item = { title: string; body: string };
 
-export function ProposalEditor({ projectId, initial, revision, shareUrl }: { projectId: number; initial: ResolvedProposal; revision: string; shareUrl: string }) {
+export function ProposalEditor({ projectId, initial, revision, shareUrl, team }: { projectId: number; initial: ResolvedProposal; revision: string; shareUrl: string; team: { name: string; role: string; core: boolean }[] }) {
   const [p, setP] = useState<ResolvedProposal>(initial);
   const [dirty, setDirty] = useState(false);
   const [pending, start] = useTransition();
@@ -52,6 +52,21 @@ export function ProposalEditor({ projectId, initial, revision, shareUrl }: { pro
             return (
               <button key={s.key} className={`chip ${on ? "accent" : ""}`} style={{ cursor: "pointer", height: 34 }} onClick={() => set("hidden", on ? [...p.hidden, s.key] : p.hidden.filter((h) => h !== s.key))}>
                 <span className="material-symbols-outlined" style={{ fontSize: 18 }}>{on ? "check" : "visibility_off"}</span>{s.label}
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+      <div className="card">
+        <h3>Team on this proposal</h3>
+        <p className="small muted" style={{ marginTop: 0 }}>Core team plus the project&apos;s superintendent by default. Tap to add or remove people.</p>
+        <div className="chip-set">
+          {team.map((m) => {
+            const on = p.team.includes(m.name);
+            return (
+              <button key={m.name} className={`chip ${on ? "accent" : ""}`} style={{ cursor: "pointer", height: 34 }} onClick={() => set("team", on ? p.team.filter((x) => x !== m.name) : [...p.team, m.name])}>
+                <span className="material-symbols-outlined" style={{ fontSize: 18 }}>{on ? "check" : "add"}</span>{m.name}<span className="muted">· {m.role}{m.core ? " · core" : ""}</span>
               </button>
             );
           })}

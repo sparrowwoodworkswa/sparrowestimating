@@ -1,7 +1,7 @@
 [
  {
   "division": "01",
-  "csiCode": "01 31 13",
+  "csiCode": "113.1",
   "description": "Superintendent (part-time over ~26 wk schedule)",
   "scope": "Site supervision, scheduling, sub coordination, inspections, daily logs, safety.",
   "note": "~12 hrs/wk",
@@ -9,11 +9,12 @@
   "qty": 300,
   "unit": "HR",
   "unitPrice": 125,
-  "total": 37500
+  "total": 37500,
+  "csiOriginal": "01 31 13"
  },
  {
   "division": "01",
-  "csiCode": "01 31 13",
+  "csiCode": "113.1",
   "description": "Project management & admin",
   "scope": "Budget tracking, cost-plus billing, owner and architect meetings, change orders, closeout.",
   "note": "",
@@ -21,11 +22,12 @@
   "qty": 120,
   "unit": "HR",
   "unitPrice": 120,
-  "total": 14400
+  "total": 14400,
+  "csiOriginal": "01 31 13"
  },
  {
   "division": "01",
-  "csiCode": "01 33 00",
+  "csiCode": "113.1",
   "description": "Project engineer: submittals, RFIs, procurement",
   "scope": "Submittal review and tracking, RFIs, long-lead ordering (windows, glulam, steel, roofing).",
   "note": "Windows, glulam, steel, roofing",
@@ -33,11 +35,12 @@
   "qty": 40,
   "unit": "HR",
   "unitPrice": 95,
-  "total": 3800
+  "total": 3800,
+  "csiOriginal": "01 33 00"
  },
  {
   "division": "01",
-  "csiCode": "01 41 00",
+  "csiCode": "104.2",
   "description": "Building permit & plan review (COBI) allowance",
   "scope": "COBI building, mechanical and electrical permits, plan review fees.",
   "note": "Confirm whether owner pays permit",
@@ -45,11 +48,12 @@
   "qty": 1,
   "unit": "LS",
   "unitPrice": 9500,
-  "total": 9500
+  "total": 9500,
+  "csiOriginal": "01 41 00"
  },
  {
   "division": "01",
-  "csiCode": "01 71 23",
+  "csiCode": "102.1",
   "description": "Layout & surveyor staking",
   "scope": "Survey staking of building corners and finish floor elevation.",
   "note": "",
@@ -57,11 +61,12 @@
   "qty": 1,
   "unit": "LS",
   "unitPrice": 2800,
-  "total": 2800
+  "total": 2800,
+  "csiOriginal": "01 71 23"
  },
  {
   "division": "01",
-  "csiCode": "01 45 00",
+  "csiCode": "102.5",
   "description": "Testing & special inspection allowance",
   "scope": "Allowance for any required inspections or testing beyond fabricator's shop inspection.",
   "note": "Steel shop inspection by fabricator per S1.00",
@@ -69,11 +74,12 @@
   "qty": 1,
   "unit": "LS",
   "unitPrice": 1500,
-  "total": 1500
+  "total": 1500,
+  "csiOriginal": "01 45 00"
  },
  {
   "division": "01",
-  "csiCode": "01 52 00",
+  "csiCode": "108.2",
   "description": "Temporary toilet",
   "scope": "Portable toilet with weekly service.",
   "note": "",
@@ -81,11 +87,12 @@
   "qty": 6,
   "unit": "MO",
   "unitPrice": 275,
-  "total": 1650
+  "total": 1650,
+  "csiOriginal": "01 52 00"
  },
  {
   "division": "01",
-  "csiCode": "01 52 00",
+  "csiCode": "108.3",
   "description": "Temp power, protect existing SFR & driveway",
   "scope": "Temp power hookup, plywood and fencing protection at existing house and driveway.",
   "note": "",
@@ -93,11 +100,12 @@
   "qty": 1,
   "unit": "LS",
   "unitPrice": 2340,
-  "total": 2340
+  "total": 2340,
+  "csiOriginal": "01 52 00"
  },
  {
   "division": "01",
-  "csiCode": "01 54 00",
+  "csiCode": "110.1",
   "description": "Telehandler / lift rental (16' walls, clerestory, roof)",
   "scope": "Telehandler rental with delivery and pickup for material handling and high work.",
   "note": "",
@@ -105,11 +113,12 @@
   "qty": 6,
   "unit": "WK",
   "unitPrice": 1450,
-  "total": 8700
+  "total": 8700,
+  "csiOriginal": "01 54 00"
  },
  {
   "division": "01",
-  "csiCode": "01 54 00",
+  "csiCode": "110.5",
   "description": "Scaffold / scissor lift for siding & windows",
   "scope": "Scaffold or scissor lift rental for siding, clerestory windows and trim.",
   "note": "",
@@ -117,11 +126,12 @@
   "qty": 7,
   "unit": "WK",
   "unitPrice": 650,
-  "total": 4550
+  "total": 4550,
+  "csiOriginal": "01 54 00"
  },
  {
   "division": "01",
-  "csiCode": "01 74 19",
+  "csiCode": "112.1",
   "description": "Dumpsters & haul",
   "scope": "20-yard roll-offs, haul and dump fees.",
   "note": "",
@@ -129,11 +139,12 @@
   "qty": 6,
   "unit": "EA",
   "unitPrice": 850,
-  "total": 5100
+  "total": 5100,
+  "csiOriginal": "01 74 19"
  },
  {
   "division": "01",
-  "csiCode": "01 74 00",
+  "csiCode": "112.4",
   "description": "Daily cleanup & final clean",
   "scope": "Ongoing site cleanup and final construction clean, windows and floors.",
   "note": "",
@@ -141,11 +152,12 @@
   "qty": 1,
   "unit": "LS",
   "unitPrice": 4800,
-  "total": 4800
+  "total": 4800,
+  "csiOriginal": "01 74 00"
  },
  {
   "division": "01",
-  "csiCode": "01 50 00",
+  "csiCode": "110.2",
   "description": "Small tools & consumables",
   "scope": "Blades, bits, fasteners for general use, PPE, consumables.",
   "note": "",
@@ -153,11 +165,12 @@
   "qty": 6,
   "unit": "MO",
   "unitPrice": 550,
-  "total": 3300
+  "total": 3300,
+  "csiOriginal": "01 50 00"
  },
  {
   "division": "01",
-  "csiCode": "01 56 00",
+  "csiCode": "108.9",
   "description": "On-site storage container for glulam, windows, finishes",
   "scope": "Lockable storage container on site for glulam, windows and finish materials, delivery and pickup.",
   "note": "Added Rev B",
@@ -165,11 +178,12 @@
   "qty": 6,
   "unit": "MO",
   "unitPrice": 350,
-  "total": 2100
+  "total": 2100,
+  "csiOriginal": "01 56 00"
  },
  {
   "division": "02",
-  "csiCode": "02 41 13",
+  "csiCode": "201.2",
   "description": "Demo existing concrete sport court slab, haul off",
   "scope": "Saw cut and break out existing sport court slab, load and haul off, recycle concrete.",
   "note": "44' x 22' per A2.01",
@@ -177,11 +191,12 @@
   "qty": 968,
   "unit": "SF",
   "unitPrice": 4.5,
-  "total": 4356
+  "total": 4356,
+  "csiOriginal": "02 41 13"
  },
  {
   "division": "02",
-  "csiCode": "02 37 00",
+  "csiCode": "204.5",
   "description": "TESC: silt fence, construction entrance",
   "scope": "Silt fence, rock construction entrance, maintenance through grading and foundation.",
   "note": "",
@@ -189,11 +204,12 @@
   "qty": 1,
   "unit": "LS",
   "unitPrice": 3220,
-  "total": 3220
+  "total": 3220,
+  "csiOriginal": "02 37 00"
  },
  {
   "division": "02",
-  "csiCode": "02 31 00",
+  "csiCode": "204.1",
   "description": "Excavate footings & retaining walls, backfill & compact",
   "scope": "Excavate for footings and retaining walls, backfill with native or import, compact.",
   "note": "Sloped site, cut on uphill side",
@@ -201,11 +217,12 @@
   "qty": 100,
   "unit": "CY",
   "unitPrice": 68,
-  "total": 6800
+  "total": 6800,
+  "csiOriginal": "02 31 00"
  },
  {
-  "division": "02",
-  "csiCode": "02 31 00",
+  "division": "07",
+  "csiCode": "703.2",
   "description": "Crushed rock base under slab, 4\" min",
   "scope": "Furnish, place and compact 4\" min crushed rock under slab.",
   "note": "F1 assembly",
@@ -213,11 +230,12 @@
   "qty": 14,
   "unit": "CY",
   "unitPrice": 95,
-  "total": 1330
+  "total": 1330,
+  "csiOriginal": "02 31 00"
  },
  {
-  "division": "02",
-  "csiCode": "02 62 00",
+  "division": "07",
+  "csiCode": "703.3",
   "description": "Footing drains + downspout tightlines",
   "scope": "4\" perforated footing drain in washed rock and fabric, solid tightlines from four downspouts to dispersion.",
   "note": "~132 LF footing drain + ~160 LF tightline",
@@ -225,11 +243,12 @@
   "qty": 290,
   "unit": "LF",
   "unitPrice": 28,
-  "total": 8120
+  "total": 8120,
+  "csiOriginal": "02 62 00"
  },
  {
   "division": "02",
-  "csiCode": "02 63 00",
+  "csiCode": "206.1",
   "description": "Stormwater dispersion / infiltration allowance",
   "scope": "Dispersion trench or drywell per COBI stormwater requirements.",
   "note": "Well head & drain field nearby; COBI review",
@@ -237,11 +256,12 @@
   "qty": 1,
   "unit": "LS",
   "unitPrice": 5500,
-  "total": 5500
+  "total": 5500,
+  "csiOriginal": "02 63 00"
  },
  {
   "division": "02",
-  "csiCode": "02 31 00",
+  "csiCode": "204.4",
   "description": "Electrical feeder trench from existing house",
   "scope": "Trench, bed and backfill for electrical conduit from house to new building.",
   "note": "Length scaled roughly from A1.00",
@@ -249,11 +269,12 @@
   "qty": 120,
   "unit": "LF",
   "unitPrice": 18,
-  "total": 2160
+  "total": 2160,
+  "csiOriginal": "02 31 00"
  },
  {
   "division": "02",
-  "csiCode": "02 92 00",
+  "csiCode": "206.3",
   "description": "Finish grading & landscape restoration allowance",
   "scope": "Rough and finish grade around building, topsoil, seed or bark at disturbed areas.",
   "note": "",
@@ -261,11 +282,12 @@
   "qty": 1,
   "unit": "LS",
   "unitPrice": 4500,
-  "total": 4500
+  "total": 4500,
+  "csiOriginal": "02 92 00"
  },
  {
   "division": "03",
-  "csiCode": "03 30 00",
+  "csiCode": "300.1",
   "description": "Continuous footings 18\" x 12\" (11/S3.00)",
   "scope": "Form, rebar and pour 18\" x 12\" continuous footings on three sides, pump if needed. Retaining wall carries its own footing.",
   "note": "Excludes east end under retaining wall. Verify 12\" vs 8\" depth",
@@ -273,11 +295,12 @@
   "qty": 88,
   "unit": "LF",
   "unitPrice": 78,
-  "total": 6864
+  "total": 6864,
+  "csiOriginal": "03 30 00"
  },
  {
   "division": "03",
-  "csiCode": "03 30 00",
+  "csiCode": "300.1",
   "description": "6\" stem walls, avg 2.5' tall",
   "scope": "Form, rebar and pour 6\" stem walls, anchor bolts set by framer.",
   "note": "",
@@ -285,11 +308,12 @@
   "qty": 83,
   "unit": "LF",
   "unitPrice": 98,
-  "total": 8134
+  "total": 8134,
+  "csiOriginal": "03 30 00"
  },
  {
   "division": "03",
-  "csiCode": "03 30 00",
+  "csiCode": "300.4",
   "description": "Architectural concrete retaining walls w/ Xypex (W1)",
   "scope": "8\" walls with smooth architectural formwork and finish, Xypex admix, rebar per structural.",
   "note": "~50 LF x 4.5' avg, exposed interior face. Extent scaled",
@@ -297,11 +321,12 @@
   "qty": 225,
   "unit": "SF",
   "unitPrice": 88,
-  "total": 19800
+  "total": 19800,
+  "csiOriginal": "03 30 00"
  },
  {
   "division": "03",
-  "csiCode": "03 15 00",
+  "csiCode": "300.1",
   "description": "Holdown anchors & anchor bolts, set in forms",
   "scope": "Set HDU holdown anchors, J-bolts and plate washers before pour.",
   "note": "HDU-2 / HDU-5 per S2.01",
@@ -309,11 +334,12 @@
   "qty": 1,
   "unit": "LS",
   "unitPrice": 1280,
-  "total": 1280
+  "total": 1280,
+  "csiOriginal": "03 15 00"
  },
  {
   "division": "03",
-  "csiCode": "03 30 00",
+  "csiCode": "300.5",
   "description": "5\" SOG, #3 @ 18\" EW, 15 mil VB, stain-ready finish",
   "scope": "Vapor barrier, #3 rebar on chairs, place, finish and cure 5\" slab, saw-cut joints.",
   "note": "Arch says 5\", struct says 4\". Priced at 5\"",
@@ -321,11 +347,12 @@
   "qty": 990,
   "unit": "SF",
   "unitPrice": 13.5,
-  "total": 13365
+  "total": 13365,
+  "csiOriginal": "03 30 00"
  },
  {
   "division": "03",
-  "csiCode": "03 30 00",
+  "csiCode": "302.2",
   "description": "Exterior SOG landings (2)",
   "scope": "Two exterior landings at doors, broom finish, sloped to drain.",
   "note": "",
@@ -333,11 +360,12 @@
   "qty": 60,
   "unit": "SF",
   "unitPrice": 24,
-  "total": 1440
+  "total": 1440,
+  "csiOriginal": "03 30 00"
  },
  {
   "division": "05",
-  "csiCode": "05 12 00",
+  "csiCode": "500.1",
   "description": "Steel T-plates & extension plates at heels, peaks, post-to-beam (S1-S4)",
   "scope": "Fabricate 44 custom 1/4\" steel T-plates and extension plates at truss heels, peaks and post-to-beam, recessed all-thread, shop primed and painted.",
   "note": "Heels, peaks and post-to-beam. Shop fab, primed/painted",
@@ -345,11 +373,12 @@
   "qty": 44,
   "unit": "EA",
   "unitPrice": 450,
-  "total": 19800
+  "total": 19800,
+  "csiOriginal": "05 12 00"
  },
  {
   "division": "05",
-  "csiCode": "05 12 00",
+  "csiCode": "500.1",
   "description": "Rod bracing: 5/8\" rod, swaged eyelets, turnbuckles, 1/4\" plates (S4)",
   "scope": "5/8\" A36 rods with swaged eyelets, turnbuckles, clevises and 1/4\" connection plates at four X-braced bays.",
   "note": "4 X-braced bays per S2.12. A36 per struct; arch says stainless",
@@ -357,11 +386,12 @@
   "qty": 8,
   "unit": "EA",
   "unitPrice": 750,
-  "total": 6000
+  "total": 6000,
+  "csiOriginal": "05 12 00"
  },
  {
   "division": "05",
-  "csiCode": "05 05 00",
+  "csiCode": "500.1",
   "description": "Steel shop drawings & fabricator inspection",
   "scope": "Fabricator shop drawings and in-shop special inspection per IBC 1704.2.5.",
   "note": "",
@@ -369,11 +399,12 @@
   "qty": 1,
   "unit": "LS",
   "unitPrice": 2500,
-  "total": 2500
+  "total": 2500,
+  "csiOriginal": "05 05 00"
  },
  {
   "division": "05",
-  "csiCode": "05 12 00",
+  "csiCode": "500.1",
   "description": "Install steel plates & rod bracing",
   "scope": "Sparrow crew installs steel plates and tension rods, final tensioning.",
   "note": "",
@@ -381,11 +412,12 @@
   "qty": 1,
   "unit": "LS",
   "unitPrice": 5290,
-  "total": 5290
+  "total": 5290,
+  "csiOriginal": "05 12 00"
  },
  {
   "division": "06",
-  "csiCode": "06 11 00",
+  "csiCode": "600.1",
   "description": "PT sill plates w/ anchor bolts & plate washers",
   "scope": "Layout, PT 2x6 sills, foam sill seal, plate washers, bolt-down.",
   "note": "",
@@ -393,11 +425,12 @@
   "qty": 133,
   "unit": "LF",
   "unitPrice": 17.5,
-  "total": 2328
+  "total": 2328,
+  "csiOriginal": "06 11 00"
  },
  {
   "division": "06",
-  "csiCode": "06 11 00",
+  "csiCode": "600.1",
   "description": "2x6 @ 16\" walls, 16' plate, headers, blocking, fireblocking",
   "scope": "16' 2x6 studs, double top plate, headers, king and jack studs, blocking, fireblocking.",
   "note": "Gross wall area incl. gables",
@@ -405,11 +438,12 @@
   "qty": 2300,
   "unit": "SF",
   "unitPrice": 12.12,
-  "total": 27888
+  "total": 27888,
+  "csiOriginal": "06 11 00"
  },
  {
   "division": "06",
-  "csiCode": "06 18 00",
+  "csiCode": "600.3",
   "description": "Glulam columns 5-1/2 x 6, architectural grade, 16'",
   "scope": "18 architectural-grade glulam columns, cut, set, plumb and connect with A35s.",
   "note": "GLC at each grid line, both walls",
@@ -417,11 +451,12 @@
   "qty": 18,
   "unit": "EA",
   "unitPrice": 995,
-  "total": 17910
+  "total": 17910,
+  "csiOriginal": "06 18 00"
  },
  {
   "division": "06",
-  "csiCode": "06 18 00",
+  "csiCode": "600.3",
   "description": "5-1/2 x 12 GLB continuous beams, grids 1 & 2",
   "scope": "Continuous 5-1/2 x 12 glulam beams along both long walls, splices and connections.",
   "note": "",
@@ -429,11 +464,12 @@
   "qty": 92,
   "unit": "LF",
   "unitPrice": 112,
-  "total": 10304
+  "total": 10304,
+  "csiOriginal": "06 18 00"
  },
  {
   "division": "06",
-  "csiCode": "06 18 00",
+  "csiCode": "600.2",
   "description": "Glulam roof trusses (rafters, bottom chord, king post), shop fab",
   "scope": "Shop-built glulam trusses (rafters, bottom chord, king post), cut, drill, assemble and protect.",
   "note": "~61 LF glulam per truss. Sparrow shop or truss shop (S2.12 note 4)",
@@ -441,11 +477,12 @@
   "qty": 9,
   "unit": "EA",
   "unitPrice": 6210,
-  "total": 55890
+  "total": 55890,
+  "csiOriginal": "06 18 00"
  },
  {
   "division": "06",
-  "csiCode": "06 05 23",
+  "csiCode": "600.2",
   "description": "Truss hardware: SDS screws, MSTC, MSTA, A35",
   "scope": "SDS screws, MSTC and MSTA straps, A35 clips at trusses and beams.",
   "note": "",
@@ -453,11 +490,12 @@
   "qty": 9,
   "unit": "EA",
   "unitPrice": 280,
-  "total": 2520
+  "total": 2520,
+  "csiOriginal": "06 05 23"
  },
  {
-  "division": "06",
-  "csiCode": "06 18 00",
+  "division": "01",
+  "csiCode": "110.1",
   "description": "Crane to set trusses",
   "scope": "Crane with operator to set trusses, beams and columns.",
   "note": "",
@@ -465,11 +503,12 @@
   "qty": 2,
   "unit": "DAY",
   "unitPrice": 2800,
-  "total": 5600
+  "total": 5600,
+  "csiOriginal": "06 18 00"
  },
  {
   "division": "06",
-  "csiCode": "06 15 00",
+  "csiCode": "600.1",
   "description": "2x6 T&G hem-fir decking, sanded decorative grade",
   "scope": "Sanded decorative-grade 2x6 hem-fir T&G roof deck, 16d at each support, staggered joints.",
   "note": "6:12 pitch, ~4'-8\" eaves. ~1,675 SF measured off A3.01",
@@ -477,11 +516,12 @@
   "qty": 1675,
   "unit": "SF",
   "unitPrice": 14.75,
-  "total": 24706
+  "total": 24706,
+  "csiOriginal": "06 15 00"
  },
  {
   "division": "06",
-  "csiCode": "06 16 00",
+  "csiCode": "600.1",
   "description": "15/32\" wall sheathing w/ shear nailing (SW-4 / SW-6)",
   "scope": "15/32\" plywood wall sheathing with shear wall nailing per SW-4 / SW-6.",
   "note": "",
@@ -489,11 +529,12 @@
   "qty": 2300,
   "unit": "SF",
   "unitPrice": 4.03,
-  "total": 9258
+  "total": 9258,
+  "csiOriginal": "06 16 00"
  },
  {
   "division": "06",
-  "csiCode": "06 16 00",
+  "csiCode": "600.1",
   "description": "1/2\" roof plywood over XPS, long screws",
   "scope": "1/2\" CDX over rigid insulation, long structural screws through to deck.",
   "note": "",
@@ -501,11 +542,12 @@
   "qty": 1675,
   "unit": "SF",
   "unitPrice": 5.1,
-  "total": 8542
+  "total": 8542,
+  "csiOriginal": "06 16 00"
  },
  {
   "division": "06",
-  "csiCode": "06 05 23",
+  "csiCode": "600.1",
   "description": "Holdowns, CS16 wrap straps, A35s, misc connectors",
   "scope": "HDU holdowns, CS16 wrap straps around building, A35s and misc Simpson hardware.",
   "note": "",
@@ -513,11 +555,12 @@
   "qty": 1,
   "unit": "LS",
   "unitPrice": 5120,
-  "total": 5120
+  "total": 5120,
+  "csiOriginal": "06 05 23"
  },
  {
   "division": "06",
-  "csiCode": "06 11 00",
+  "csiCode": "600.1",
   "description": "Roof edge blocking at XPS, sub-fascia",
   "scope": "Edge blocking to hold XPS at eaves and rakes, sub-fascia framing.",
   "note": "",
@@ -525,11 +568,12 @@
   "qty": 190,
   "unit": "LF",
   "unitPrice": 20.6,
-  "total": 3914
+  "total": 3914,
+  "csiOriginal": "06 11 00"
  },
  {
   "division": "06",
-  "csiCode": "06 22 00",
+  "csiCode": "601.1",
   "description": "Exterior fascia & rake trim",
   "scope": "Wood fascia and rake boards, install ready for paint.",
   "note": "",
@@ -537,11 +581,12 @@
   "qty": 190,
   "unit": "LF",
   "unitPrice": 25.75,
-  "total": 4892
+  "total": 4892,
+  "csiOriginal": "06 22 00"
  },
  {
   "division": "06",
-  "csiCode": "06 20 00",
+  "csiCode": "605.1",
   "description": "Window & door jamb extensions, sills, casing",
   "scope": "Jamb extensions, interior sills and simple casing at windows and doors.",
   "note": "30 windows + 2 door pairs",
@@ -549,11 +594,12 @@
   "qty": 32,
   "unit": "EA",
   "unitPrice": 410,
-  "total": 13120
+  "total": 13120,
+  "csiOriginal": "06 20 00"
  },
  {
   "division": "06",
-  "csiCode": "06 20 00",
+  "csiCode": "605.1",
   "description": "Base trim",
   "scope": "Simple paint-grade base at drywall walls.",
   "note": "",
@@ -561,11 +607,12 @@
   "qty": 100,
   "unit": "LF",
   "unitPrice": 12.9,
-  "total": 1290
+  "total": 1290,
+  "csiOriginal": "06 20 00"
  },
  {
   "division": "06",
-  "csiCode": "06 10 00",
+  "csiCode": "600.9",
   "description": "Backing for barres, mirror, track lighting",
   "scope": "Blocking in walls for barres, mirror and track lighting supports.",
   "note": "",
@@ -573,11 +620,12 @@
   "qty": 1,
   "unit": "LS",
   "unitPrice": 1980,
-  "total": 1980
+  "total": 1980,
+  "csiOriginal": "06 10 00"
  },
  {
   "division": "07",
-  "csiCode": "07 21 00",
+  "csiCode": "700.1",
   "description": "Under-slab XPS 2\", 40 psi",
   "scope": "2\" 40 psi XPS under full slab area, taped seams.",
   "note": "Thickness not shown. Assumed R-10",
@@ -585,11 +633,12 @@
   "qty": 990,
   "unit": "SF",
   "unitPrice": 3.66,
-  "total": 3623
+  "total": 3623,
+  "csiOriginal": "07 21 00"
  },
  {
   "division": "07",
-  "csiCode": "07 13 00",
+  "csiCode": "701.1",
   "description": "Retaining wall waterproofing, drainage mat, filter fabric",
   "scope": "Liquid-applied waterproofing, drainage mat and filter fabric on retaining walls.",
   "note": "W1",
@@ -597,11 +646,12 @@
   "qty": 225,
   "unit": "SF",
   "unitPrice": 14,
-  "total": 3150
+  "total": 3150,
+  "csiOriginal": "07 13 00"
  },
  {
   "division": "07",
-  "csiCode": "07 21 00",
+  "csiCode": "700.2",
   "description": "R-21 batts, exterior walls",
   "scope": "R-21 batts in exterior walls, friction fit, vapor retarder where required.",
   "note": "",
@@ -609,11 +659,12 @@
   "qty": 1750,
   "unit": "SF",
   "unitPrice": 1.65,
-  "total": 2888
+  "total": 2888,
+  "csiOriginal": "07 21 00"
  },
  {
   "division": "07",
-  "csiCode": "07 22 00",
+  "csiCode": "700.4",
   "description": "6\" XPS roof insulation, 2 layers staggered",
   "scope": "Two staggered layers of 3\" XPS over roof deck, taped joints.",
   "note": "Check energy code (see Notes)",
@@ -621,11 +672,12 @@
   "qty": 1675,
   "unit": "SF",
   "unitPrice": 8.38,
-  "total": 14028
+  "total": 14028,
+  "csiOriginal": "07 22 00"
  },
  {
   "division": "07",
-  "csiCode": "07 61 00",
+  "csiCode": "704.2",
   "description": "Standing seam metal roof, HT underlayment, flashings",
   "scope": "24 ga standing seam roof with high-temp underlayment, ridge, eave, rake and wall flashings.",
   "note": "24 ga mechanical seam",
@@ -633,11 +685,12 @@
   "qty": 1675,
   "unit": "SF",
   "unitPrice": 21,
-  "total": 35175
+  "total": 35175,
+  "csiOriginal": "07 61 00"
  },
  {
   "division": "07",
-  "csiCode": "07 71 00",
+  "csiCode": "704.4",
   "description": "Gutters",
   "scope": "Seamless aluminum gutters with hangers, both eaves.",
   "note": "",
@@ -645,11 +698,12 @@
   "qty": 96,
   "unit": "LF",
   "unitPrice": 22,
-  "total": 2112
+  "total": 2112,
+  "csiOriginal": "07 71 00"
  },
  {
   "division": "07",
-  "csiCode": "07 71 00",
+  "csiCode": "704.4",
   "description": "Downspouts",
   "scope": "Downspouts with straps, connected to tightlines.",
   "note": "",
@@ -657,11 +711,12 @@
   "qty": 72,
   "unit": "LF",
   "unitPrice": 18,
-  "total": 1296
+  "total": 1296,
+  "csiOriginal": "07 71 00"
  },
  {
   "division": "07",
-  "csiCode": "07 25 00",
+  "csiCode": "706.1",
   "description": "WRB, taped seams",
   "scope": "Weather-resistive barrier over sheathing, taped seams. Nichiha clip system provides the rainscreen gap.",
   "note": "Nichiha clip system is the rainscreen. No battens",
@@ -669,11 +724,12 @@
   "qty": 1750,
   "unit": "SF",
   "unitPrice": 1.5,
-  "total": 2625
+  "total": 2625,
+  "csiOriginal": "07 25 00"
  },
  {
-  "division": "07",
-  "csiCode": "07 46 00",
+  "division": "06",
+  "csiCode": "601.2",
   "description": "Nichiha AWP Vintagewood (Ash) siding w/ clips & trims",
   "scope": "Nichiha AWP Vintagewood panels with clips, starter, corners, trims and J-mold.",
   "note": "W2, net of openings",
@@ -681,11 +737,12 @@
   "qty": 1550,
   "unit": "SF",
   "unitPrice": 21.95,
-  "total": 34022
+  "total": 34022,
+  "csiOriginal": "07 46 00"
  },
  {
-  "division": "07",
-  "csiCode": "07 62 00",
+  "division": "08",
+  "csiCode": "803.5",
   "description": "Window & door flashing, pans, sealants",
   "scope": "Sill pans, flashing tape, head flashings and perimeter sealant at each opening.",
   "note": "",
@@ -693,11 +750,12 @@
   "qty": 32,
   "unit": "EA",
   "unitPrice": 248,
-  "total": 7920
+  "total": 7920,
+  "csiOriginal": "07 62 00"
  },
  {
   "division": "07",
-  "csiCode": "07 92 00",
+  "csiCode": "705.1",
   "description": "Air sealing, fire caulk, general sealants",
   "scope": "Air sealing at plates and penetrations, fire caulk, misc sealants.",
   "note": "",
@@ -705,11 +763,12 @@
   "qty": 1,
   "unit": "LS",
   "unitPrice": 2880,
-  "total": 2880
+  "total": 2880,
+  "csiOriginal": "07 92 00"
  },
  {
   "division": "08",
-  "csiCode": "08 54 00",
+  "csiCode": "803.1",
   "description": "Clerestory fixed units, alum-clad wood (~5' x 3')",
   "scope": "12 fixed aluminum-clad wood clerestory units, delivered, installed and shimmed.",
   "note": "Marvin / Loewen / Sierra Pacific tier",
@@ -717,11 +776,12 @@
   "qty": 12,
   "unit": "EA",
   "unitPrice": 2020,
-  "total": 24240
+  "total": 24240,
+  "csiOriginal": "08 54 00"
  },
  {
   "division": "08",
-  "csiCode": "08 54 00",
+  "csiCode": "803.1",
   "description": "Clerestory operable units (~5' x 3')",
   "scope": "4 operable clerestory units with screens and hardware.",
   "note": "End bays, per elevations",
@@ -729,11 +789,12 @@
   "qty": 4,
   "unit": "EA",
   "unitPrice": 2825,
-  "total": 11300
+  "total": 11300,
+  "csiOriginal": "08 54 00"
  },
  {
   "division": "08",
-  "csiCode": "08 54 00",
+  "csiCode": "803.1",
   "description": "North wall large fixed units (~4.5' x 7.5')",
   "scope": "4 large fixed clad units on north wall.",
   "note": "",
@@ -741,11 +802,12 @@
   "qty": 4,
   "unit": "EA",
   "unitPrice": 4430,
-  "total": 17720
+  "total": 17720,
+  "csiOriginal": "08 54 00"
  },
  {
   "division": "08",
-  "csiCode": "08 54 00",
+  "csiCode": "803.1",
   "description": "North wall awnings below (~4.5' x 1.5')",
   "scope": "4 awning units below large north windows, with screens.",
   "note": "",
@@ -753,11 +815,12 @@
   "qty": 4,
   "unit": "EA",
   "unitPrice": 1815,
-  "total": 7260
+  "total": 7260,
+  "csiOriginal": "08 54 00"
  },
  {
   "division": "08",
-  "csiCode": "08 54 00",
+  "csiCode": "803.1",
   "description": "East & west casement units (~2.5' x 4.5')",
   "scope": "6 casement units at east and west walls, with screens.",
   "note": "",
@@ -765,11 +828,12 @@
   "qty": 6,
   "unit": "EA",
   "unitPrice": 2015,
-  "total": 12090
+  "total": 12090,
+  "csiOriginal": "08 54 00"
  },
  {
   "division": "08",
-  "csiCode": "08 14 00",
+  "csiCode": "800.2",
   "description": "Alum-clad wood French door pairs, multipoint hardware",
   "scope": "2 pairs of clad wood French doors, multipoint locks, sills and weatherstrip.",
   "note": "",
@@ -777,11 +841,12 @@
   "qty": 2,
   "unit": "EA",
   "unitPrice": 10550,
-  "total": 21100
+  "total": 21100,
+  "csiOriginal": "08 14 00"
  },
  {
   "division": "08",
-  "csiCode": "08 71 00",
+  "csiCode": "802.1",
   "description": "Exterior lock hardware",
   "scope": "Keyed exterior locksets or smart lock at both door pairs.",
   "note": "",
@@ -789,11 +854,12 @@
   "qty": 2,
   "unit": "EA",
   "unitPrice": 808,
-  "total": 1615
+  "total": 1615,
+  "csiOriginal": "08 71 00"
  },
  {
-  "division": "08",
-  "csiCode": "08 83 00",
+  "division": "10",
+  "csiCode": "1000.1",
   "description": "Mirror glass adhered to wall",
   "scope": "Mirror glass with safety backing, mastic and J-channel, installed on wall.",
   "note": "Size scaled from Section C",
@@ -801,11 +867,12 @@
   "qty": 120,
   "unit": "SF",
   "unitPrice": 38,
-  "total": 4560
+  "total": 4560,
+  "csiOriginal": "08 83 00"
  },
  {
   "division": "09",
-  "csiCode": "09 29 00",
+  "csiCode": "900.1",
   "description": "5/8\" GWB walls, hang / tape / L4",
   "scope": "Hang, tape and finish 5/8\" drywall to Level 4 at exterior walls.",
   "note": "",
@@ -813,11 +880,12 @@
   "qty": 1350,
   "unit": "SF",
   "unitPrice": 4.25,
-  "total": 5738
+  "total": 5738,
+  "csiOriginal": "09 29 00"
  },
  {
   "division": "09",
-  "csiCode": "09 91 00",
+  "csiCode": "903.1",
   "description": "Paint GWB walls, primer + 2",
   "scope": "Prime and two finish coats on drywall walls.",
   "note": "",
@@ -825,11 +893,12 @@
   "qty": 1350,
   "unit": "SF",
   "unitPrice": 2.1,
-  "total": 2835
+  "total": 2835,
+  "csiOriginal": "09 91 00"
  },
  {
   "division": "09",
-  "csiCode": "09 93 00",
+  "csiCode": "903.1",
   "description": "Clear finish T&G decking (pre-finished)",
   "scope": "Shop or site spray clear finish on T&G before install, two coats.",
   "note": "",
@@ -837,11 +906,12 @@
   "qty": 1675,
   "unit": "SF",
   "unitPrice": 1.75,
-  "total": 2931
+  "total": 2931,
+  "csiOriginal": "09 93 00"
  },
  {
   "division": "09",
-  "csiCode": "09 93 00",
+  "csiCode": "903.1",
   "description": "Clear finish glulam columns, beams, trusses",
   "scope": "Clear finish on glulam columns, beams and trusses, two coats.",
   "note": "",
@@ -849,11 +919,12 @@
   "qty": 930,
   "unit": "LF",
   "unitPrice": 3.5,
-  "total": 3255
+  "total": 3255,
+  "csiOriginal": "09 93 00"
  },
  {
   "division": "09",
-  "csiCode": "09 91 00",
+  "csiCode": "903.2",
   "description": "Exterior paint, fascia & trim",
   "scope": "Prime and paint wood fascia and rake trim.",
   "note": "Nichiha is prefinished",
@@ -861,11 +932,12 @@
   "qty": 190,
   "unit": "LF",
   "unitPrice": 5,
-  "total": 950
+  "total": 950,
+  "csiOriginal": "09 91 00"
  },
  {
-  "division": "09",
-  "csiCode": "09 61 00",
+  "division": "03",
+  "csiCode": "306.1",
   "description": "Stain & seal concrete floor",
   "scope": "Grind, acid or water-based stain and sealer on exposed slab.",
   "note": "Excludes dance floor area",
@@ -873,11 +945,12 @@
   "qty": 640,
   "unit": "SF",
   "unitPrice": 6.5,
-  "total": 4160
+  "total": 4160,
+  "csiOriginal": "09 61 00"
  },
  {
-  "division": "09",
-  "csiCode": "09 61 00",
+  "division": "03",
+  "csiCode": "306.1",
   "description": "Seal architectural concrete wall faces",
   "scope": "Penetrating sealer on exposed architectural concrete walls.",
   "note": "",
@@ -885,11 +958,12 @@
   "qty": 225,
   "unit": "SF",
   "unitPrice": 3,
-  "total": 675
+  "total": 675,
+  "csiOriginal": "09 61 00"
  },
  {
   "division": "09",
-  "csiCode": "09 64 00",
+  "csiCode": "902.9",
   "description": "Specialty dance floor: sprung subfloor + performance vinyl",
   "scope": "Sprung dance subfloor with performance vinyl surface, edges and transitions.",
   "note": "~15'-10\" x 22'. Product not specified",
@@ -897,11 +971,12 @@
   "qty": 350,
   "unit": "SF",
   "unitPrice": 32,
-  "total": 11200
+  "total": 11200,
+  "csiOriginal": "09 64 00"
  },
  {
   "division": "10",
-  "csiCode": "10 00 00",
+  "csiCode": "1000.9",
   "description": "Double ballet barres on wall brackets",
   "scope": "Double wall-mounted ballet barres with brackets, installed into blocking.",
   "note": "Matches 16' mirror wall",
@@ -909,11 +984,12 @@
   "qty": 16,
   "unit": "LF",
   "unitPrice": 116,
-  "total": 1864
+  "total": 1864,
+  "csiOriginal": "10 00 00"
  },
  {
   "division": "10",
-  "csiCode": "10 44 00",
+  "csiCode": "1001.9",
   "description": "Fire extinguisher & bracket",
   "scope": "One fire extinguisher with wall bracket.",
   "note": "",
@@ -921,11 +997,12 @@
   "qty": 1,
   "unit": "EA",
   "unitPrice": 232,
-  "total": 232
+  "total": 232,
+  "csiOriginal": "10 44 00"
  },
  {
   "division": "15",
-  "csiCode": "15 70 00",
+  "csiCode": "1502.1",
   "description": "Ductless heat pump (~2 ton, 2 heads), line sets, condensate",
   "scope": "Ductless heat pump outdoor unit, two indoor heads, line sets, condensate, startup.",
   "note": "No mech drawings. Allowance",
@@ -933,11 +1010,12 @@
   "qty": 1,
   "unit": "LS",
   "unitPrice": 16500,
-  "total": 16500
+  "total": 16500,
+  "csiOriginal": "15 70 00"
  },
  {
   "division": "15",
-  "csiCode": "15 80 00",
+  "csiCode": "1504.2",
   "description": "Through-wall heat exchanger ventilation (2 pairs)",
   "scope": "Two pairs of through-wall heat recovery ventilators with controls.",
   "note": "General note 6",
@@ -945,11 +1023,12 @@
   "qty": 1,
   "unit": "LS",
   "unitPrice": 5800,
-  "total": 5800
+  "total": 5800,
+  "csiOriginal": "15 80 00"
  },
  {
   "division": "16",
-  "csiCode": "16 40 00",
+  "csiCode": "1600.9",
   "description": "Feeder from existing house + 100A subpanel",
   "scope": "Feeder conductors in conduit from house panel, 100A subpanel, grounding.",
   "note": "Assumes existing service has capacity",
@@ -957,11 +1036,12 @@
   "qty": 1,
   "unit": "LS",
   "unitPrice": 8500,
-  "total": 8500
+  "total": 8500,
+  "csiOriginal": "16 40 00"
  },
  {
   "division": "16",
-  "csiCode": "16 10 00",
+  "csiCode": "1600.1",
   "description": "Branch wiring, devices, switching, dimming",
   "scope": "Receptacles, switches, dimmers, boxes and wiring throughout.",
   "note": "Layout TBD w/ owner",
@@ -969,11 +1049,12 @@
   "qty": 990,
   "unit": "SF",
   "unitPrice": 9.5,
-  "total": 9405
+  "total": 9405,
+  "csiOriginal": "16 10 00"
  },
  {
   "division": "16",
-  "csiCode": "16 50 00",
+  "csiCode": "1601.2",
   "description": "Track lighting runs & heads (fixture allowance)",
   "scope": "Track runs, heads and mounting hardware on truss bottom chords.",
   "note": "On truss bottom chords",
@@ -981,11 +1062,12 @@
   "qty": 1,
   "unit": "LS",
   "unitPrice": 9500,
-  "total": 9500
+  "total": 9500,
+  "csiOriginal": "16 50 00"
  },
  {
   "division": "16",
-  "csiCode": "16 50 00",
+  "csiCode": "1601.2",
   "description": "Surface monopoint fixtures (allowance)",
   "scope": "Surface monopoint fixtures where shown on A2.20.",
   "note": "",
@@ -993,11 +1075,12 @@
   "qty": 10,
   "unit": "EA",
   "unitPrice": 300,
-  "total": 3000
+  "total": 3000,
+  "csiOriginal": "16 50 00"
  },
  {
   "division": "16",
-  "csiCode": "16 50 00",
+  "csiCode": "1601.2",
   "description": "Exterior wall lights at doors (allowance)",
   "scope": "Exterior wall fixtures at each door, wet-rated.",
   "note": "",
@@ -1005,11 +1088,12 @@
   "qty": 4,
   "unit": "EA",
   "unitPrice": 350,
-  "total": 1400
+  "total": 1400,
+  "csiOriginal": "16 50 00"
  },
  {
   "division": "16",
-  "csiCode": "16 50 00",
+  "csiCode": "1600.1",
   "description": "Lighting install: track, monopoints, exterior",
   "scope": "Install track, monopoints and exterior fixtures, aim and test.",
   "note": "",
@@ -1017,11 +1101,12 @@
   "qty": 1,
   "unit": "LS",
   "unitPrice": 6800,
-  "total": 6800
+  "total": 6800,
+  "csiOriginal": "16 50 00"
  },
  {
   "division": "16",
-  "csiCode": "16 72 00",
+  "csiCode": "1600.1",
   "description": "Smoke / CO / heat detectors",
   "scope": "Hardwired smoke, CO and heat detectors with battery backup.",
   "note": "",
@@ -1029,11 +1114,12 @@
   "qty": 3,
   "unit": "EA",
   "unitPrice": 275,
-  "total": 825
+  "total": 825,
+  "csiOriginal": "16 72 00"
  },
  {
   "division": "16",
-  "csiCode": "16 70 00",
+  "csiCode": "1603.1",
   "description": "Low voltage: data & speaker pre-wire allowance",
   "scope": "Cat6 data drop and speaker wire pre-wire, no equipment.",
   "note": "",
@@ -1041,11 +1127,12 @@
   "qty": 1,
   "unit": "LS",
   "unitPrice": 2800,
-  "total": 2800
+  "total": 2800,
+  "csiOriginal": "16 70 00"
  },
  {
   "division": "16",
-  "csiCode": "16 10 00",
+  "csiCode": "1600.1",
   "description": "Mechanical equipment connections",
   "scope": "Power and disconnects for heat pump and ventilators.",
   "note": "",
@@ -1053,6 +1140,7 @@
   "qty": 1,
   "unit": "LS",
   "unitPrice": 1800,
-  "total": 1800
+  "total": 1800,
+  "csiOriginal": "16 10 00"
  }
 ]

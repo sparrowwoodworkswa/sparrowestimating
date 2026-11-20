@@ -2,14 +2,17 @@ import { desc } from "drizzle-orm";
 import { getDb, schema } from "@/db";
 import { saveCatalogItem, importCatalogCsv, setCatalogActive, deleteCatalogItem } from "@/app/actions";
 import { SubmitButton } from "@/components/SubmitButton";
-import { TRADES } from "@/lib/csi";
+import { TRADES, FINISH_LEVELS } from "@/lib/csi";
+import { COST_CODES } from "@/lib/costcodes";
 import { usd } from "@/lib/totals";
 
 const SRC: Record<string, { label: string; tone: string }> = {
-  sub_quote: { label: "Sub quote", tone: "good" },
-  bid: { label: "Bid", tone: "good" },
-  actual: { label: "Actual cost", tone: "good" },
-  estimate: { label: "Past estimate", tone: "neutral" },
+  actual: { label: "Actual", tone: "good" },
+  sub_quote: { label: "Sub bid", tone: "good" },
+  bid: { label: "Sub bid", tone: "good" },
+  estimate: { label: "Sparrow estimate", tone: "neutral" },
+  reference: { label: "Reference rate", tone: "neutral" },
+  claude_takeoff: { label: "Claude takeoff", tone: "info" },
   learned: { label: "Learned", tone: "info" },
 };
 
@@ -50,13 +53,22 @@ export default async function CatalogPage({ searchParams }: { searchParams: Prom
           </div>
           <label className="field"><span>Item</span><input className="input" name="item" required placeholder="Footings and stem walls, formed, placed and finished" /></label>
           <div className="form-grid">
+            <label className="field"><span>Sparrow cost code</span>
+              <input className="input" name="costCode" list="costcodes" placeholder="300.1" />
+              <datalist id="costcodes">{COST_CODES.map((c) => <option key={c.code} value={c.code}>{c.label}</option>)}</datalist>
+            </label>
+            <label className="field"><span>Finish level</span>
+              <select className="input" name="finishLevel" defaultValue=""><option value="">Any</option>{FINISH_LEVELS.map((f) => <option key={f}>{f}</option>)}</select>
+            </label>
+          </div>
+          <div className="form-grid">
             <label className="field"><span>Price</span><input className="input" name="unitPrice" required inputMode="decimal" placeholder="$385" /></label>
             <label className="field"><span>Per</span><input className="input" name="unit" placeholder="CY" /></label>
             <label className="field"><span>Price is</span>
               <select className="input" name="priceType"><option value="installed">Installed (labor + material)</option><option value="material">Material only</option><option value="labor">Labor only</option></select>
             </label>
             <label className="field"><span>Source</span>
-              <select className="input" name="source"><option value="sub_quote">Sub quote</option><option value="bid">Bid on a project</option><option value="actual">Actual cost</option><option value="estimate">Past estimate</option></select>
+              <select className="input" name="source"><option value="sub_quote">Sub bid</option><option value="actual">Actual (job cost)</option><option value="estimate">Sparrow estimate</option><option value="reference">Reference rate</option><option value="claude_takeoff">Claude takeoff</option></select>
             </label>
             <label className="field"><span>Quote date</span><input className="input" name="quoteDate" type="month" /></label>
             <label className="field"><span>Region</span><input className="input" name="region" defaultValue="Kitsap / Puget Sound" /></label>
@@ -68,7 +80,7 @@ export default async function CatalogPage({ searchParams }: { searchParams: Prom
         <form action={importCatalogCsv} className="card stack" style={{ gap: 12 }}>
           <h3 style={{ margin: 0 }}>Import a price sheet</h3>
           <p className="muted small" style={{ margin: 0 }}>
-            CSV with a header row. Columns: <code>trade, item, unit, unit_price, vendor, quote_date, notes</code>. Have a sub fill in a spreadsheet and export it as CSV.
+            CSV with a header row. Columns: <code>trade, cost_code, item, unit, unit_price, finish_level, vendor, quote_date, notes</code>. Have a sub fill in a spreadsheet and export it as CSV.
           </p>
           <input className="input" type="file" name="file" accept=".csv,text/csv" required style={{ paddingTop: 10 }} />
           <div className="row"><SubmitButton className="btn tonal" icon="upload_file">Import</SubmitButton></div>
@@ -93,7 +105,7 @@ export default async function CatalogPage({ searchParams }: { searchParams: Prom
               return (
                 <tr key={c.id} style={{ opacity: c.active ? 1 : 0.6 }}>
                   <td className="muted">{c.trade}</td>
-                  <td>{c.item}{c.notes && <div className="small muted">{c.notes}</div>}</td>
+                  <td>{c.costCode && <b className="small" style={{ marginRight: 6 }}>{c.costCode}</b>}{c.item}{(c.notes || c.finishLevel) && <div className="small muted">{[c.finishLevel, c.notes].filter(Boolean).join(" · ")}</div>}</td>
                   <td className="n">{usd(c.unitPrice, 2)} / {c.unit}<div className="small muted">{c.priceType}</div></td>
                   <td><span className={`chip ${src.tone}`}>{src.label}</span></td>
                   <td>{c.vendor}</td>
