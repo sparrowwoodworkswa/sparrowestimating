@@ -61,7 +61,6 @@ export default async function PublicProposal({ params }: { params: Promise<{ tok
 
   return (
     <div className="prop" style={style}>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,400;1,500&family=Jost:wght@400;500&display=swap" precedence="default" />
       <PageBehavior />
       <ProposalNav companyName={c.name} logoUrl={c.logoUrl} projectName={p.name} sections={numbered.map(([k, label]) => [k, label])} />
 

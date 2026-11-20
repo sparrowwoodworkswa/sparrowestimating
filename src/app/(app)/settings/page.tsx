@@ -90,7 +90,7 @@ export default async function SettingsPage() {
       <div className="card stack" style={{ gap: 12 }}>
         <h3 style={{ margin: 0 }}>Estimating standards</h3>
         <p className="small muted" style={{ margin: 0 }}>The rulebook Claude follows on every ROM: how to take off, what Sparrow self-performs, what to always carry, what never to carry.</p>
-        <textarea className="input" name="estimatingStandards" defaultValue={s.estimatingStandards} style={{ minHeight: 320, fontFamily: "Roboto Mono, monospace", fontSize: 12 }} />
+        <textarea className="input" name="estimatingStandards" defaultValue={s.estimatingStandards} style={{ minHeight: 320, fontSize: 13 }} />
       </div>
     </form>
   );

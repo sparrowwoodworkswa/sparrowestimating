@@ -31,7 +31,7 @@
   --radius-m: 12px;
   --radius-l: 16px;
   --radius-xl: 28px;
-  --font: "Google Sans", "Google Sans Text", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color-scheme: light;
 }
 @media (prefers-color-scheme: dark) {
@@ -65,6 +65,7 @@
 }
 
 * { box-sizing: border-box; }
+button, input, select, textarea { font-family: inherit; }
 html, body { margin: 0; }
 body {
   background: var(--md-surface);
@@ -232,6 +233,6 @@ details.panel > summary::-webkit-details-marker { display: none; }
 details.panel > summary .chev { transition: transform 0.15s; margin-left: auto; }
 details.panel[open] > summary .chev { transform: rotate(180deg); }
 details.panel > .body { padding: 0 16px 16px; }
-.log { font-family: "Roboto Mono", ui-monospace, monospace; font-size: 12px; background: var(--md-surface-container); border-radius: var(--radius-s); padding: 10px 12px; max-height: 180px; overflow: auto; white-space: pre-wrap; }
+.log { font-family: var(--font); font-size: 12px; background: var(--md-surface-container); border-radius: var(--radius-s); padding: 10px 12px; max-height: 180px; overflow: auto; white-space: pre-wrap; }
 .divider { height: 1px; background: var(--md-outline-variant); margin: 16px 0; }
 .snack { position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); background: #322f2b; color: #f5efe6; padding: 14px 20px; border-radius: 4px; box-shadow: var(--shadow-2); z-index: 50; font-size: 14px; }
