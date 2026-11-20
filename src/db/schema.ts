@@ -28,8 +28,16 @@ export type Company = {
   phone: string;
   email: string;
   website: string;
-  logoUrl: string;
-  colors: { ink: string; mid: string; rule: string; tint: string; accent: string; accentDark: string };
+  logoUrl: string; // bird mark, used in the app bar and proposal header
+  logoFullUrl?: string; // full "sparrow / WOOD WORKS" lockup, used on the proposal cover and footer
+  address?: string;
+  brandVersion?: number;
+  filmUrl?: string; // optional YouTube link shown in the proposal's film section
+  filmHeading?: string;
+  filmBody?: string;
+  benefits?: { title: string; body: string }[]; // "How you benefit from our approach"
+  closing?: string;
+  colors: { ink: string; mid: string; rule: string; tint: string; accent: string; accentDark: string; band?: string };
   team: TeamMember[];
   shopPhoto: string;
   shopCaption: string;
@@ -53,7 +61,7 @@ export type Analysis = {
   missingInfo: string[];
 };
 
-export type Milestone = { week: number; title: string };
+export type Milestone = { week: number; title: string; detail?: string };
 export type ValueOption = { title: string; description: string; directDelta: number };
 
 export type ProposalContent = {
@@ -71,7 +79,35 @@ export type ProposalContent = {
   elevationImage: string;
   elevationCaption: string;
   exclusions: string[];
+  // Added for the Fellow-style experience. All optional so older proposals keep working.
+  salutation?: string; // "Dear Mike and Megan,"
+  notePara2?: string;
+  gallery?: { src: string; caption: string }[];
+  filmUrl?: string; // overrides the company film; "" hides it
+  benefits?: { title: string; body: string }[];
+  preconIntro?: string;
+  preconDeliverables?: { title: string; body: string }[];
+  agreementUrl?: string;
+  agreementLabel?: string;
+  retainer?: string; // e.g. "$5,000"; blank = no retainer shown
+  closing?: string;
+  hidden?: string[]; // section keys hidden on the client page
 };
+
+export const PROPOSAL_SECTIONS: { key: string; label: string }[] = [
+  { key: "letter", label: "Welcome letter" },
+  { key: "project", label: "The project (gallery)" },
+  { key: "film", label: "Film" },
+  { key: "about", label: "Who we are" },
+  { key: "benefits", label: "Owner benefits" },
+  { key: "caught", label: "What we caught" },
+  { key: "cost", label: "Cost summary" },
+  { key: "value", label: "Value options" },
+  { key: "schedule", label: "Schedule" },
+  { key: "precon", label: "Pre-construction" },
+  { key: "team", label: "Team" },
+  { key: "estimate", label: "Detailed estimate" },
+];
 
 export type Material = { item: string; spec: string; qty: number; unit: string; notes: string };
 

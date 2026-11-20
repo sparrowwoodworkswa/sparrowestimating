@@ -30,9 +30,22 @@ export const DEFAULT_COMPANY: Company = {
   tagline: "General contracting + millwork",
   location: "Indianola, Washington",
   phone: "",
-  email: "",
+  email: "info@sparrowwoodworks.com",
+  address: "PO Box 468, Indianola, WA 98342",
   website: "sparrowwoodworks.com",
-  logoUrl: "",
+  logoUrl: "/brand/logo-bird.png",
+  logoFullUrl: "/brand/logo-full.png",
+  brandVersion: 2,
+  filmUrl: "",
+  filmHeading: "Built by hand.",
+  filmBody: "Our carpenters frame and set the structure. Our wood shop builds the pieces you see and touch every day.",
+  closing: "We look forward to building with you.",
+  benefits: [
+    { title: "Constructability reviews", body: "We test each design decision for how it gets built, without eroding what the architect drew." },
+    { title: "Risks found early", body: "We flag drawing conflicts and site conditions before they become field problems, delays or cost surprises." },
+    { title: "Value that keeps the design", body: "When you ask for savings, we offer options that protect the design and favor durability over short-term cuts." },
+    { title: "Open book, start to finish", body: "Every line, allowance and sub quote is yours to see. Cost-plus means no hidden margin." },
+  ],
   colors: {
     ink: "#1A1A18",
     mid: "#6A6A64",
@@ -40,6 +53,7 @@ export const DEFAULT_COMPANY: Company = {
     tint: "#F0EFEA",
     accent: "#8A6A3B",
     accentDark: "#C79D62",
+    band: "#E6E4D8",
   },
   shopPhoto: "/brand/shop-derek.jpg",
   shopCaption: "Derek Crenshaw, wood shop manager, in the Sparrow shop in Indianola.",
@@ -126,8 +140,11 @@ function tradeFor(div: string): string {
 }
 
 export async function seedIfEmpty(db: AnyDb) {
-  const existing = await db.select({ id: schema.settings.id }).from(schema.settings).limit(1);
-  if (existing.length) return;
+  const existing = await db.select().from(schema.settings).limit(1);
+  if (existing.length) {
+    await upgradeBrand(db, existing[0].company as Company);
+    return;
+  }
 
   await db.insert(schema.settings).values({
     id: 1,
@@ -240,4 +257,23 @@ export async function seedIfEmpty(db: AnyDb) {
       })),
   );
   await db.execute(sql`select 1`);
+}
+
+/** One-time brand update for databases seeded before the logo and site colors were added. Fills only missing values. */
+async function upgradeBrand(db: AnyDb, c: Company) {
+  if ((c.brandVersion ?? 1) >= 2) return;
+  const d = DEFAULT_COMPANY;
+  const next: Company = {
+    ...d,
+    ...c,
+    logoUrl: c.logoUrl || d.logoUrl,
+    logoFullUrl: c.logoFullUrl || d.logoFullUrl,
+    email: c.email || d.email,
+    address: c.address || d.address,
+    benefits: c.benefits?.length ? c.benefits : d.benefits,
+    colors: { ...d.colors, ...c.colors, band: c.colors.band || d.colors.band },
+    brandVersion: 2,
+  };
+  const { eq } = await import("drizzle-orm");
+  await db.update(schema.settings).set({ company: next }).where(eq(schema.settings.id, 1));
 }

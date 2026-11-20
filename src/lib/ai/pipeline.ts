@@ -350,13 +350,15 @@ Milestones: 5, from week 0 break ground to closeout at the schedule duration.`,
     maxTokens: 16000,
   });
   addUsage(ctx, r.usage);
+  // Claude rewrites the copy only. Images, gallery, film, agreement, retainer, closing and section toggles stay as Sparrow set them.
   const prev = project.proposal;
   const proposal: ProposalContent = {
+    heroImage: "",
+    heroCaption: "",
+    elevationImage: "",
+    elevationCaption: "",
+    ...(prev ?? {}),
     ...r.data,
-    heroImage: prev?.heroImage ?? "",
-    heroCaption: prev?.heroCaption ?? "",
-    elevationImage: prev?.elevationImage ?? "",
-    elevationCaption: prev?.elevationCaption ?? "",
     exclusions: prev?.exclusions?.length ? prev.exclusions : settings.company.defaultExclusions,
   };
   await db.update(schema.projects).set({ proposal, updatedAt: new Date() }).where(eq(schema.projects.id, projectId));

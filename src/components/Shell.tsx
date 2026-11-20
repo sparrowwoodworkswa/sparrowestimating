@@ -23,7 +23,7 @@ export function Shell({ children, companyName, logoUrl }: { children: React.Reac
         </button>
         <Link href="/" className="brand">
           {logoUrl ? <img src={logoUrl} alt={companyName} /> : <span className="mark">{initials}</span>}
-          <span>{logoUrl ? "" : companyName.split(" ")[0]} <small>Estimating</small></span>
+          <span>{companyName.split(" ")[0]} <small>Estimating</small></span>
         </Link>
         <form
           className="search"

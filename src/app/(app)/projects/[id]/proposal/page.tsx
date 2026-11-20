@@ -1,5 +1,6 @@
 import { headers } from "next/headers";
-import { getLatestRun, getProject } from "@/lib/data";
+import { getLatestRun, getProject, getSettings } from "@/lib/data";
+import { resolveProposal } from "@/lib/proposal";
 import { startProposalRewrite, rotateShareLink, updateProject } from "@/app/actions";
 import { ProposalEditor } from "@/components/ProposalEditor";
 import { RunPanel } from "@/components/RunPanel";
@@ -9,7 +10,7 @@ import { SubmitButton } from "@/components/SubmitButton";
 export default async function ProposalTab({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   const p = (await getProject(Number(id)))!;
-  const run = await getLatestRun(p.id);
+  const [run, settings] = await Promise.all([getLatestRun(p.id), getSettings()]);
   const h = await headers();
   const origin = `${h.get("x-forwarded-proto") ?? "http"}://${h.get("host")}`;
   const url = `${origin}/p/${p.shareToken}`;
@@ -40,11 +41,11 @@ export default async function ProposalTab({ params }: { params: Promise<{ id: st
 
       <div className="card">
         <div className="card-head"><h3>Rewrite the proposal copy from the current estimate</h3></div>
-        <RunPanel projectId={p.id} initial={run} kind="proposal" start={startProposalRewrite} label="Rewrite with Claude" icon="edit_note" disabled={!process.env.ANTHROPIC_API_KEY} confirmText="This replaces the lede, note, description, value options and schedule. Continue?" />
+        <RunPanel projectId={p.id} initial={run} kind="proposal" start={startProposalRewrite} label="Rewrite with Claude" icon="edit_note" disabled={!process.env.ANTHROPIC_API_KEY} confirmText="This rewrites the copy (lede, greeting, letter, description, benefits, value options and schedule). Your images, film, agreement and section settings stay. Continue?" />
       </div>
 
       {p.proposal ? (
-        <ProposalEditor projectId={p.id} initial={p.proposal} revision={p.revision} />
+        <ProposalEditor projectId={p.id} initial={resolveProposal(p, p.proposal, settings.company)} revision={p.revision} shareUrl={`/p/${p.shareToken}`} />
       ) : (
         <div className="card empty">
           <span className="material-symbols-outlined">description</span>

@@ -296,6 +296,13 @@ export async function uploadProposalImage(projectId: number, slot: "heroImage" |
   revalidatePath(`/projects/${projectId}/proposal`);
 }
 
+/** Stores an image or PDF for a proposal (gallery photo, hero, agreement) and returns its storage key. */
+export async function uploadProposalAsset(form: FormData): Promise<string | null> {
+  const file = form.get("file") as File | null;
+  if (!file || !file.size) return null;
+  return putFile(file.name, Buffer.from(await file.arrayBuffer()), file.type || "application/octet-stream");
+}
+
 export async function rotateShareLink(projectId: number) {
   const db = await getDb();
   await db.update(schema.projects).set({ shareToken: nanoid(16) }).where(eq(schema.projects.id, projectId));
@@ -437,7 +444,20 @@ export async function saveSettings(form: FormData) {
     email: s(form, "email"),
     website: s(form, "website"),
     recognition: s(form, "recognition"),
-    colors: { ...cur.company.colors, accent: s(form, "accent") || cur.company.colors.accent, ink: s(form, "ink") || cur.company.colors.ink },
+    address: form.has("address") ? s(form, "address") : cur.company.address,
+    filmUrl: form.has("filmUrl") ? s(form, "filmUrl") : cur.company.filmUrl,
+    filmHeading: form.has("filmHeading") ? s(form, "filmHeading") : cur.company.filmHeading,
+    filmBody: form.has("filmBody") ? s(form, "filmBody") : cur.company.filmBody,
+    closing: form.has("closing") ? s(form, "closing") : cur.company.closing,
+    benefits: form.has("benefits")
+      ? s(form, "benefits").split("\n").map((l) => l.split("|")).filter((x) => x[0]?.trim()).map(([t, ...b]) => ({ title: t.trim(), body: b.join("|").trim() }))
+      : cur.company.benefits,
+    colors: {
+      ...cur.company.colors,
+      accent: s(form, "accent") || cur.company.colors.accent,
+      ink: s(form, "ink") || cur.company.colors.ink,
+      band: s(form, "band") || cur.company.colors.band,
+    },
     defaultExclusions: s(form, "defaultExclusions").split("\n").map((x) => x.trim()).filter(Boolean),
   };
   const logo = form.get("logo") as File | null;

@@ -49,13 +49,15 @@ export default async function SettingsPage() {
         <div className="card stack" style={{ gap: 12 }}>
           <h3 style={{ margin: 0 }}>Brand kit</h3>
           <div className="row">
+            {c.logoFullUrl && <img src={c.logoFullUrl} alt="Full logo" style={{ height: 56, background: "#3d3c38", padding: 6, borderRadius: 8 }} />}
             {c.logoUrl ? <img src={c.logoUrl} alt="Logo" style={{ height: 56, background: "#fff", padding: 6, borderRadius: 8, border: "1px solid var(--md-outline-variant)" }} /> : <span className="chip warn">No logo uploaded yet</span>}
             {c.logoUrl && <label className="check small"><input type="checkbox" name="removeLogo" value="1" /> Remove</label>}
           </div>
-          <label className="field"><span>Logo (PNG or SVG with a transparent background works best)</span><input className="input" type="file" name="logo" accept="image/*" style={{ paddingTop: 10 }} /></label>
+          <label className="field"><span>Replace the bird mark (PNG or SVG with a transparent background)</span><input className="input" type="file" name="logo" accept="image/*" style={{ paddingTop: 10 }} /></label>
           <div className="form-grid" style={{ gridTemplateColumns: "1fr 1fr" }}>
             <label className="field"><span>Accent color</span><input className="input" type="color" name="accent" defaultValue={c.colors.accent} style={{ padding: 4 }} /></label>
             <label className="field"><span>Ink color</span><input className="input" type="color" name="ink" defaultValue={c.colors.ink} style={{ padding: 4 }} /></label>
+            <label className="field"><span>Band color (proposal cover and cost section)</span><input className="input" type="color" name="band" defaultValue={c.colors.band ?? "#E6E4D8"} style={{ padding: 4 }} /></label>
           </div>
           <label className="field"><span>Company name</span><input className="input" name="name" defaultValue={c.name} /></label>
           <label className="field"><span>Tagline</span><input className="input" name="tagline" defaultValue={c.tagline} /></label>
@@ -65,11 +67,21 @@ export default async function SettingsPage() {
             <label className="field"><span>Email</span><input className="input" name="email" defaultValue={c.email} /></label>
           </div>
           <label className="field"><span>Website</span><input className="input" name="website" defaultValue={c.website} /></label>
+          <label className="field"><span>Mailing address (proposal footer)</span><input className="input" name="address" defaultValue={c.address ?? ""} /></label>
           <label className="field"><span>Recognition line</span><input className="input" name="recognition" defaultValue={c.recognition} /></label>
         </div>
 
         <div className="card stack" style={{ gap: 12 }}>
           <h3 style={{ margin: 0 }}>Proposal defaults</h3>
+          <label className="field"><span>Owner benefits (one per line: Title | sentence)</span>
+            <textarea className="input" name="benefits" defaultValue={(c.benefits ?? []).map((b) => `${b.title} | ${b.body}`).join("\n")} style={{ minHeight: 130 }} />
+          </label>
+          <label className="field"><span>Film link (YouTube, optional; shows a film section on every proposal)</span><input className="input" name="filmUrl" defaultValue={c.filmUrl ?? ""} placeholder="https://youtu.be/…" /></label>
+          <div className="form-grid" style={{ gridTemplateColumns: "1fr 1fr" }}>
+            <label className="field"><span>Film headline</span><input className="input" name="filmHeading" defaultValue={c.filmHeading ?? ""} /></label>
+            <label className="field"><span>Closing line</span><input className="input" name="closing" defaultValue={c.closing ?? ""} /></label>
+          </div>
+          <label className="field"><span>Film intro</span><input className="input" name="filmBody" defaultValue={c.filmBody ?? ""} /></label>
           <label className="field"><span>Default exclusions (one per line)</span><textarea className="input" name="defaultExclusions" defaultValue={c.defaultExclusions.join("\n")} style={{ minHeight: 180 }} /></label>
           <p className="small muted" style={{ margin: 0 }}>Team bios and photos are in the database seed ({c.team.length} people). Photos live in <code>public/brand/team</code>.</p>
         </div>

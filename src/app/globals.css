@@ -1,20 +1,22 @@
 /* Material 3-style system, themed from the Sparrow brand kit (wood #8A6A3B, ink #1A1A18). */
 :root {
-  --md-primary: #8a6a3b;
+  /* Sparrow brand (sparrowwoodworks.com): charcoal #404040, near-black #1D1D1D, khaki #C6C5B3, off-white #FAFAFA; wood #8A6A3B as accent */
+  --md-primary: #3d3c38;
   --md-on-primary: #ffffff;
-  --md-primary-container: #f6e3c7;
-  --md-on-primary-container: #2c1d05;
-  --md-secondary-container: #ece2d3;
-  --md-on-secondary-container: #241a0c;
-  --md-surface: #fdfbf8;
-  --md-surface-dim: #f3f0eb;
-  --md-surface-container-low: #f8f5f0;
-  --md-surface-container: #f2eee8;
-  --md-surface-container-high: #ebe7e0;
-  --md-on-surface: #1a1a18;
-  --md-on-surface-variant: #5c5a54;
-  --md-outline: #8f8c84;
-  --md-outline-variant: #d8d8d2;
+  --md-primary-container: #e4e2d3;
+  --md-on-primary-container: #1d1d1d;
+  --md-secondary-container: #e9e7dc;
+  --md-on-secondary-container: #1d1d1d;
+  --md-tertiary: #8a6a3b;
+  --md-surface: #fafafa;
+  --md-surface-dim: #f0efea;
+  --md-surface-container-low: #f4f3ef;
+  --md-surface-container: #efeee8;
+  --md-surface-container-high: #e8e6de;
+  --md-on-surface: #1d1d1d;
+  --md-on-surface-variant: #5b5a55;
+  --md-outline: #8f8d85;
+  --md-outline-variant: #d6d4ca;
   --md-error: #b3261e;
   --md-error-container: #f9dedc;
   --md-good: #1e6b3a;
@@ -34,12 +36,13 @@
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --md-primary: #e2bf8c;
-    --md-on-primary: #3f2c0c;
-    --md-primary-container: #5a4320;
-    --md-on-primary-container: #fbe7cb;
-    --md-secondary-container: #4a4033;
-    --md-on-secondary-container: #f1e2cf;
+    --md-primary: #d9d7c6;
+    --md-on-primary: #262522;
+    --md-primary-container: #4a4940;
+    --md-on-primary-container: #f1efe2;
+    --md-secondary-container: #3d3c35;
+    --md-on-secondary-container: #ecebe2;
+    --md-tertiary: #c79d62;
     --md-surface: #151413;
     --md-surface-dim: #121110;
     --md-surface-container-low: #1c1b19;
@@ -82,7 +85,8 @@ h1, h2, h3, h4 { font-weight: 400; margin: 0; }
 .topbar .menu-btn { display: none; }
 .brand { display: flex; align-items: center; gap: 10px; color: var(--md-on-surface); font-size: 20px; padding: 0 8px; }
 .brand:hover { text-decoration: none; }
-.brand img { height: 36px; width: auto; }
+.brand img { height: 34px; width: auto; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .brand img { filter: invert(1); } }
 .brand .mark { width: 36px; height: 36px; border-radius: 50%; background: var(--md-primary); color: var(--md-on-primary); display: grid; place-items: center; font-weight: 700; font-size: 16px; letter-spacing: 0.02em; }
 .brand small { color: var(--md-on-surface-variant); font-size: 20px; }
 .topbar .search { flex: 1; max-width: 720px; margin: 0 auto; display: flex; align-items: center; gap: 10px; background: var(--md-surface-container-high); border-radius: var(--radius-xl); height: 46px; padding: 0 16px; color: var(--md-on-surface-variant); }
@@ -216,7 +220,7 @@ table.edit textarea { resize: vertical; min-height: 32px; height: 32px; line-hei
 .progress::after { content: ""; position: absolute; inset: 0; width: 40%; background: var(--md-primary); border-radius: 2px; animation: indet 1.4s infinite ease-in-out; }
 @keyframes indet { 0% { left: -40%; } 100% { left: 100%; } }
 .bar-track { height: 8px; background: var(--md-surface-container-high); border-radius: 4px; overflow: hidden; }
-.bar-fill { height: 100%; background: var(--md-primary); border-radius: 4px; }
+.bar-fill { height: 100%; background: var(--md-tertiary); border-radius: 4px; }
 .list { list-style: none; margin: 0; padding: 0; }
 .list li { padding: 12px 0; border-bottom: 1px solid var(--md-outline-variant); }
 .list li:last-child { border-bottom: 0; }

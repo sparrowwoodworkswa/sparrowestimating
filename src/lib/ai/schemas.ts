@@ -83,7 +83,13 @@ export const ProposalSchema = z.object({
   valueOptions: z
     .array(z.object({ title: z.string(), description: z.string(), directDelta: z.number().describe("Change in DIRECT cost, negative for a deduct") }))
     .describe("4 scope deducts that don't touch the signature design"),
-  milestones: z.array(z.object({ week: z.number(), title: z.string() })).describe("5 milestones from week 0 (break ground) to closeout"),
+  salutation: z.string().describe("Greeting for the welcome letter using the client's names as given, e.g. 'Dear Mike and Megan,'. Use 'Hello,' if no client name is known"),
+  benefits: z
+    .array(z.object({ title: z.string(), body: z.string() }))
+    .describe("4 owner benefits of Sparrow's approach on THIS project (constructability, risks found early, value that keeps the design, open book). One sentence each, may name the architect"),
+  milestones: z
+    .array(z.object({ week: z.number(), title: z.string(), detail: z.string().describe("One short sentence: what is complete by then on this project") }))
+    .describe("5-6 milestones from break ground to closeout, the last at the schedule duration"),
   scheduleNote: z.string(),
 });
 
