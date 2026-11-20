@@ -14,7 +14,12 @@ async function init(): Promise<DB> {
   const url = process.env.DATABASE_URL || process.env.POSTGRES_URL;
   if (url) {
     const postgres = (await import("postgres")).default;
-    const client = postgres(url, { max: 5, prepare: false });
+    // Supabase/Vercel connection strings carry extra query params (e.g. supa=base-pooler.x) that
+    // postgres-js would forward to the server as settings and fail on. Keep only what we need.
+    const u = new URL(url);
+    for (const k of [...u.searchParams.keys()]) if (k !== "sslmode") u.searchParams.delete(k);
+    const local = ["localhost", "127.0.0.1"].includes(u.hostname);
+    const client = postgres(u.toString(), { max: 5, prepare: false, ssl: local ? false : "require" });
     await client.unsafe(DDL);
     db = drizzlePostgres(client, { schema }) as unknown as DB;
   } else {
