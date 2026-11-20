@@ -2,9 +2,9 @@
 import { useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { createProjectRecord, startEstimate } from "@/app/actions";
-import { uploadPlans } from "./PlanUploader";
+import { uploadPlans, type UploadTarget } from "./PlanUploader";
 
-export function NewProjectForm({ blobEnabled, hasKey, children }: { blobEnabled: boolean; hasKey: boolean; children: React.ReactNode }) {
+export function NewProjectForm({ target, hasKey, children }: { target: UploadTarget; hasKey: boolean; children: React.ReactNode }) {
   const router = useRouter();
   const ref = useRef<HTMLFormElement>(null);
   const [status, setStatus] = useState<string | null>(null);
@@ -23,7 +23,7 @@ export function NewProjectForm({ blobEnabled, hasKey, children }: { blobEnabled:
         try {
           setStatus("Creating project…");
           const id = await createProjectRecord(fd);
-          await uploadPlans(id, files, blobEnabled, setStatus);
+          await uploadPlans(id, files, target, setStatus);
           if (fd.get("start") === "1" && hasKey && files.length) {
             setStatus("Starting the ROM…");
             const r = await startEstimate(id);

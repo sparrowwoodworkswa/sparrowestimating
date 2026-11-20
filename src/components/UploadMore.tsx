@@ -2,9 +2,9 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Dropzone } from "./Dropzone";
-import { uploadPlans } from "./PlanUploader";
+import { uploadPlans, type UploadTarget } from "./PlanUploader";
 
-export function UploadMore({ projectId, blobEnabled }: { projectId: number; blobEnabled: boolean }) {
+export function UploadMore({ projectId, target }: { projectId: number; target: UploadTarget }) {
   const router = useRouter();
   const [status, setStatus] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -19,7 +19,7 @@ export function UploadMore({ projectId, blobEnabled }: { projectId: number; blob
         if (!files.length) return;
         setError(null);
         try {
-          await uploadPlans(projectId, files, blobEnabled, setStatus);
+          await uploadPlans(projectId, files, target, setStatus);
           form.reset();
           router.refresh();
         } catch (err) {

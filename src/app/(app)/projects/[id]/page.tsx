@@ -2,6 +2,7 @@ import { getLatestRun, getPlanFiles, getProject, getLines, getSettings } from "@
 import { startEstimate, deletePlanFile, updateProject } from "@/app/actions";
 import { RunPanel } from "@/components/RunPanel";
 import { UploadMore } from "@/components/UploadMore";
+import { uploadTarget } from "@/lib/upload-target";
 import { SubmitButton } from "@/components/SubmitButton";
 import { FINISH_LEVELS, STATUSES } from "@/lib/csi";
 import { num } from "@/lib/totals";
@@ -140,7 +141,7 @@ export default async function ProjectOverview({ params }: { params: Promise<{ id
               <li key={f.id} className="row" style={{ flexWrap: "nowrap" }}>
                 <span className="material-symbols-outlined" style={{ color: "var(--md-primary)" }}>{f.kind === "image" ? "image" : "picture_as_pdf"}</span>
                 <div style={{ minWidth: 0, flex: 1 }}>
-                  <a href={f.storageKey.startsWith("local:") ? `/api/files/${encodeURIComponent(f.storageKey)}` : f.storageKey} target="_blank" style={{ wordBreak: "break-all" }}>{f.filename}</a>
+                  <a href={f.storageKey.startsWith("http") ? f.storageKey : `/api/files/${encodeURIComponent(f.storageKey)}`} target="_blank" style={{ wordBreak: "break-all" }}>{f.filename}</a>
                   <div className="small muted">{(f.sizeBytes / 1024 / 1024).toFixed(1)} MB{f.anthropicFileId ? " · read by Claude" : ""}</div>
                 </div>
                 <form action={deletePlanFile.bind(null, p.id, f.id)}>
@@ -149,7 +150,7 @@ export default async function ProjectOverview({ params }: { params: Promise<{ id
               </li>
             ))}
           </ul>
-          <UploadMore projectId={p.id} blobEnabled={!!process.env.BLOB_READ_WRITE_TOKEN} />
+          <UploadMore projectId={p.id} target={uploadTarget()} />
         </div>
 
         <form action={updateProject.bind(null, p.id)} className="card stack" style={{ gap: 12 }}>

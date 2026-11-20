@@ -41,9 +41,9 @@ Open http://localhost:3000. Data lives in `./data` (an embedded Postgres databas
 ## Host it (Vercel)
 
 1. Import the repo in Vercel.
-2. Add a Postgres database (Neon or Supabase) and set `DATABASE_URL`. Tables are created on first request.
-3. Add a Vercel Blob store and set `BLOB_READ_WRITE_TOKEN` for plan storage.
-4. Set `ANTHROPIC_API_KEY`.
+2. Set `APP_PASSWORD` (team password) and `ANTHROPIC_API_KEY`.
+3. Add Supabase from the Vercel Marketplace and connect it to the project. It provides both the database (`POSTGRES_URL`) and file storage (`SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`). The app creates its `plans` (private) and `assets` (public) storage buckets on first use. Vercel Blob also works instead.
+4. Redeploy. Tables are created and seeded on first request.
 5. ROM runs take 5 to 15 minutes, and Vercel's function time limit has to cover that, so plan on Pro with fluid compute (up to 800s per function). Very large plan sets may need a background worker later.
 
 The app has **no login yet**. Anyone with the URL can open it, so keep the URL private until team logins are added. Client proposal links (`/p/<token>`) are meant to be shared, and you can rotate a link from the Proposal tab.

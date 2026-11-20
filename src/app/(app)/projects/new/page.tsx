@@ -2,12 +2,13 @@ import { FINISH_LEVELS } from "@/lib/csi";
 import { getSettings } from "@/lib/data";
 import { Dropzone } from "@/components/Dropzone";
 import { NewProjectForm } from "@/components/NewProjectForm";
+import { uploadTarget } from "@/lib/upload-target";
 
 export default async function NewProject() {
   const s = await getSettings();
   const hasKey = !!process.env.ANTHROPIC_API_KEY;
   return (
-    <NewProjectForm blobEnabled={!!process.env.BLOB_READ_WRITE_TOKEN} hasKey={hasKey}>
+    <NewProjectForm target={uploadTarget()} hasKey={hasKey}>
       <div className="page-head">
         <div>
           <h1 className="headline">New estimate</h1>

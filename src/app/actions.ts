@@ -7,7 +7,7 @@ import { nanoid } from "nanoid";
 import { getDb, schema } from "@/db";
 import type { Company, Markups, ProposalContent, Material } from "@/db/schema";
 import { getSettings, getProject } from "@/lib/data";
-import { putFile, deleteFile } from "@/lib/storage";
+import { putFile, deleteFile, createPlanUploadUrl } from "@/lib/storage";
 import { divisionOfCode } from "@/lib/costcodes";
 import { startRun, kickStep, runProposalOnly, finishRun } from "@/lib/ai/pipeline";
 import { headers } from "next/headers";
@@ -81,12 +81,18 @@ async function saveUploads(projectId: number, files: File[]) {
 export async function registerPlanFiles(projectId: number, files: { filename: string; url: string; size: number }[]) {
   const db = await getDb();
   for (const f of files) {
-    if (!/^https:\/\/[a-z0-9.-]+\.public\.blob\.vercel-storage\.com\//i.test(f.url)) continue;
+    const ok = /^https:\/\/[a-z0-9.-]+\.public\.blob\.vercel-storage\.com\//i.test(f.url) || /^supabase:plans\/[\w.-]+$/.test(f.url);
+    if (!ok) continue;
     const kind = /\.(png|jpe?g|webp)$/i.test(f.filename) ? "image" : /spec/i.test(f.filename) ? "specs" : "plans";
     await db.insert(schema.planFiles).values({ projectId, filename: f.filename, storageKey: f.url, sizeBytes: f.size, kind });
   }
   await touch(projectId);
   revalidatePath(`/projects/${projectId}`);
+}
+
+/** Gives the browser a one-time URL to upload a large plan file straight to Supabase Storage. */
+export async function startPlanUpload(filename: string) {
+  return createPlanUploadUrl(filename);
 }
 
 /** Creates the project without files and returns its id (the browser uploads plans next). */
@@ -343,7 +349,7 @@ export async function uploadProposalImage(projectId: number, slot: "heroImage" |
   if (!file || !file.size) return;
   const project = await getProject(projectId);
   if (!project?.proposal) return;
-  const key = await putFile(file.name, Buffer.from(await file.arrayBuffer()), file.type);
+  const key = await putFile(file.name, Buffer.from(await file.arrayBuffer()), file.type, "public");
   const db = await getDb();
   await db
     .update(schema.projects)
@@ -356,7 +362,8 @@ export async function uploadProposalImage(projectId: number, slot: "heroImage" |
 export async function uploadProposalAsset(form: FormData): Promise<string | null> {
   const file = form.get("file") as File | null;
   if (!file || !file.size) return null;
-  return putFile(file.name, Buffer.from(await file.arrayBuffer()), file.type || "application/octet-stream");
+  // Proposal images and agreements are shown to clients, so they go in public storage.
+  return putFile(file.name, Buffer.from(await file.arrayBuffer()), file.type || "application/octet-stream", "public");
 }
 
 export async function rotateShareLink(projectId: number) {
@@ -522,7 +529,7 @@ export async function saveSettings(form: FormData) {
   };
   const logo = form.get("logo") as File | null;
   if (logo && logo.size) {
-    const key = await putFile(logo.name, Buffer.from(await logo.arrayBuffer()), logo.type);
+    const key = await putFile(logo.name, Buffer.from(await logo.arrayBuffer()), logo.type, "public");
     company.logoUrl = key.startsWith("local:") ? `/api/files/${encodeURIComponent(key)}` : key;
   }
   if (s(form, "removeLogo") === "1") company.logoUrl = "";
