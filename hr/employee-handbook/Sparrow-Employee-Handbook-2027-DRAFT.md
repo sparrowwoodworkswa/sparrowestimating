@@ -410,8 +410,18 @@ Company vehicles are assigned at Sparrow's discretion. In a Company vehicle:
 
 Personal use of a Company vehicle needs written permission from Mike. Return it with a full tank.
 
+### Getting to work
+Getting to and from work is your responsibility. Commuting is not reimbursed, whether you're going to the shop or a job site.
+
 ### Personal vehicles (mileage)
-If you drive your own vehicle for approved work travel beyond your normal commute, like site to site, a supply run or a delivery, Sparrow pays the IRS mileage rate. For 2027, use the rate announced by the IRS in January. Log each trip on your timesheet with the date, from and to, purpose and miles. Submit by the end of the pay period the travel happened in. Late submissions aren't reimbursed.
+Mileage is only reimbursed when you use your own vehicle specifically for work, with your supervisor's approval. Examples: hauling materials or tools, supply runs, or driving between job sites during the workday when you're asked to.
+
+- **Rate:** The IRS standard mileage rate for that year.
+- **How to report:** Turn in your mileage with your hours to your superintendent or manager every pay period. Include the date, from and to, what it was for, and miles.
+- **Deadline:** Mileage not reported with your hours for that pay period will not be reimbursed. It can't be added to a later paycheck.
+- **Flat rate jobs:** On some jobs, where Sparrow's contract with the client allows it, travel may be paid at a flat rate instead of mileage. Your supervisor will tell you in writing at the start of that job.
+
+**Drive time is different from mileage.** If you're driving for work during the workday, like between sites or on a supply run, that time is paid work time. Record it with your hours, even if you don't claim mileage.
 
 ### Travel and expenses
 Get approval before traveling for work. Keep receipts and submit expenses within 30 days. Alcohol isn't reimbursed unless Mike approves it. Non-exempt employees are paid for work travel time as required by law.
