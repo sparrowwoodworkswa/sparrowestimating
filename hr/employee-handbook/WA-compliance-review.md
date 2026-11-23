@@ -124,7 +124,7 @@ The rest is cleanup, missing sections, and decisions only you can make. Details 
 | **PTO accrual tiers** ("after 8, after 10?") | Your call | Simple option: 0-2 yrs 40 hrs, 2-5 yrs 80 hrs, 5+ yrs 120 hrs. Keep the caps matched to the tiers. Fix the sick carryover (Must Fix #3). |
 | **Jury Duty** | Approve | Add the no-retaliation line. |
 | **Dress Code** | Approve | Change to "per L&I/DOSH." Company-provided PPE is right. Washington requires employers to pay for most PPE. |
-| **Cell Phone** | Approve with edit | Add the non-exempt after-hours time rule. |
+| **Cell Phone** | Approve with edit | Add the non-exempt after-hours time rule. Fuller replacement in Section 6 (Personal Cell Phone Use). |
 | **Gifts** | Approve | Consider a dollar line ("over $75 must be reported") so "nominal" is clear. |
 | **Substance Abuse** | Approve | Fine as written. If you ever add pre-employment drug testing, Washington limits rejecting applicants for off-duty cannabis use (SB 5123). Call your attorney first. |
 | **Vehicle Use** | Approve with edits | Driver's license only for driving positions. Disclose camera audio. Pick one reimbursement method. |
@@ -157,6 +157,21 @@ Why: an employee taking work away from an active Sparrow client is a duty-of-loy
 > **Lunch is unpaid.** If you work more than 5 hours, you get a 30-minute meal break. Lunch is unpaid break time. It is not counted as hours worked and is in addition to your working hours for the day. Take it no earlier than your 2nd hour and no later than your 5th. If you work 3 or more hours past your normal shift, you get a second 30-minute unpaid meal break.
 >
 > Clock out at the start of lunch and clock back in when you return, or record it on your timesheet. During lunch you are fully off duty. No work, calls, or texts. If a supervisor asks you to stay on duty or work through lunch, that time is paid and you should record it as hours worked.
+
+**Personal Cell Phone Use**
+> Phones are part of the job here. Most of you use your personal phone for work, and many of you get an allowance for it. That's fine. But personal use during work time adds up fast and on a jobsite it can get someone hurt.
+>
+> **Personal use.** Keep personal calls, texts, social media, and browsing to your breaks and lunch. Short personal calls for something urgent, like family, a kid's school, or a doctor, are OK. Step away from the work area and keep it brief. Repeated personal phone use on the clock is a performance issue and may lead to discipline.
+>
+> **Safety first.** No phone use of any kind while running a machine or power tool, on a ladder or scaffold, or while someone is spotting you. Put it away. No earbuds or headphones on a jobsite or in the shop while machines are running, other than approved hearing protection.
+>
+> **Driving.** Washington law bans holding a phone while driving any vehicle. No handheld calls, texts, or email while driving a company vehicle or your own vehicle on company business. Hands-free calls are OK only when safe. Pull over for anything else.
+>
+> **Client homes.** Keep phone calls quiet and short inside a client's home. Take personal calls outside. Don't take photos or video of a client's home, family, or belongings except for work purposes, and never post them without Sparrow's approval. Work photos for documentation and progress are encouraged.
+>
+> **Phone allowance.** If you get a phone allowance, keep your phone charged and answer work calls during work hours. Non-exempt employees: any work calls, texts, or email outside your shift are paid time. Record them on your timesheet.
+>
+> **Your rights.** This policy doesn't limit your right to talk with coworkers about pay or working conditions, or to report safety or legal concerns.
 
 **Washington Paid Sick Leave**
 > All non-exempt employees, including part-time and temporary staff, earn 1 hour of paid sick leave for every 40 hours worked, starting on day one. You can use it starting on your 90th day. Up to 40 unused hours carry over each year. Unused sick leave is not paid out when you leave. If you're rehired within 12 months, your balance comes back.
