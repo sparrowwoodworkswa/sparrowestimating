@@ -75,6 +75,7 @@ Report it, verbally or in writing, to your supervisor, Mike or Katrina. You can 
 **No retaliation.** No one will be punished for reporting in good faith or helping with an investigation. Retaliation is itself a violation of this policy.
 
 You can also contact a government agency at any time, whether or not you report to us first. Filing deadlines apply, so act promptly.
+
 - **Washington State Human Rights Commission:** 800-233-3247, hum.wa.gov
 - **U.S. Equal Employment Opportunity Commission:** 800-669-4000, eeoc.gov
 
@@ -99,6 +100,7 @@ Everyone completes Form I-9 at hire. If your work authorization has an end date,
 
 ### Introductory period
 Your first 90 days are an introductory period. It's a chance for both of us to see if it's a good fit. It doesn't change at-will employment.
+
 - PTO and sick leave accrue from day one.
 - Sick leave can be used starting day 90.
 - PTO can be used during the first 90 days only with supervisor approval.
@@ -146,6 +148,7 @@ None of this applies to time covered by sick leave or other protected leave.
 During lunch you're fully off duty. No work, calls or texts. If a supervisor asks you to work through lunch or stay on duty, that time is paid and you should record it as hours worked.
 
 ### Timekeeping
+
 - Non-exempt employees record all time worked in the Company's timekeeping system. On field crews, the site superintendent may enter time. Check that it's right.
 - **Never work off the clock.** If anyone asks you to, tell Mike.
 - Exempt employees record billable hours and track PTO and sick time.
@@ -209,6 +212,7 @@ New Year's Day, Memorial Day, Independence Day, Labor Day, Thanksgiving, Christm
 **When you can use it:** Starting your 90th day.
 
 **What it's for:**
+
 - Your own or a family member's illness, injury, medical care or preventive care. Family means child, parent, spouse or domestic partner, grandparent, grandchild, sibling, and anyone who lives with you and depends on you for care.
 - Domestic violence, sexual assault or stalking.
 - When your workplace, or your child's school or care, is closed by a public health or emergency order.
@@ -231,6 +235,7 @@ New Year's Day, Memorial Day, Independence Day, Labor Day, Thanksgiving, Christm
 
 ### Paid Family and Medical Leave (PFML)
 Washington PFML is a state insurance program. You and Sparrow both pay into it. Eligible employees get partial pay from the state for up to:
+
 - 12 weeks for your own serious health condition,
 - 12 weeks to bond with a new child, care for a seriously ill family member, or handle certain military family needs,
 - 16 weeks combined, or 18 if there's a pregnancy complication.
@@ -245,6 +250,7 @@ You can take reasonable time off, paid or unpaid, to deal with domestic violence
 
 ### Bereavement
 After 90 days, full-time employees get paid time off for a death in the family:
+
 - Up to 3 days: spouse or domestic partner, child, parent, sibling, grandparent or grandchild.
 - 1 day: aunt, uncle, niece, nephew or in-law.
 
@@ -305,6 +311,7 @@ If a current or past Sparrow client asks you about trade work, tell Mike before 
 
 ### Outside work
 You're free to work outside Sparrow on your own time. Tell your supervisor in writing if it's construction or trade work. Outside work can't:
+
 - interfere with your Sparrow schedule or job performance,
 - create a safety risk, including showing up too worn out to work safely,
 - use Sparrow tools, vehicles, materials, time or confidential information,
@@ -323,6 +330,7 @@ Don't give or accept gifts, favors or entertainment from clients, vendors, subs 
 Keep client information private. That includes names, addresses, plans, photos, finances and anything about their homes and families. Don't share Sparrow's financial or proprietary business information outside the Company without permission.
 
 ### Social media
+
 - Don't post client information, or photos of client homes, without Sparrow's approval.
 - Don't speak for Sparrow unless Mike says you can. If you post about work, make it clear the views are your own.
 - Don't post content that's threatening, harassing or discriminatory, or that you know is false.
@@ -330,6 +338,7 @@ Keep client information private. That includes names, addresses, plans, photos, 
 
 ### Your rights
 Nothing in this handbook stops you from:
+
 - talking about your pay, hours or working conditions with coworkers or anyone else,
 - reporting or discussing harassment, discrimination, retaliation, wage problems, sexual assault or safety concerns,
 - filing a complaint with, or talking to, a government agency.
@@ -364,6 +373,7 @@ Safety comes before schedule, every time.
 **Stop-work authority.** Anyone can stop work if something is unsafe. No one gets in trouble for it.
 
 ### Rules
+
 - Safety glasses at all times in all work areas. Hearing protection with any stationary or handheld machine.
 - Hard hats, face protection and other PPE as required by L&I. Sparrow provides it.
 - Work boots on jobsites. Sneakers are OK in finished homes.
@@ -375,6 +385,7 @@ Safety comes before schedule, every time.
 - Follow Sparrow's Accident Prevention Program, attend crew safety meetings, and follow L&I rules for outdoor heat and wildfire smoke.
 
 ### Injuries
+
 1. Get first aid or call 911 if needed.
 2. Tell your supervisor and Katrina right away, no matter how minor. Fill out an incident report.
 3. Report near-misses and hazards too.
@@ -402,6 +413,7 @@ If your job requires driving, you must have a valid driver's license and tell yo
 
 ### Company vehicles
 Company vehicles are assigned at Sparrow's discretion. In a Company vehicle:
+
 - Only you drive it. No passengers who aren't on Company business.
 - No smoking, no open alcohol, and no drinking before driving.
 - No handheld phone use.
@@ -471,6 +483,7 @@ Return all Company property, including tools, keys, devices, documents and brand
 ### Handbook acknowledgment
 
 I received the Sparrow Woodworks Employee Handbook. I understand that:
+
 - I'm responsible for reading it and following it.
 - It isn't a contract, and Sparrow can change it at any time.
 - It replaces all earlier handbooks.
@@ -483,6 +496,7 @@ Signature: ______________________________   Date: ______________
 ### Wage deduction authorization
 
 I authorize Sparrow Woodworks to deduct from my pay:
+
 - tool purchases over my $500 annual tool allowance, and
 - the replacement cost of Company property I don't return when I leave.
 
