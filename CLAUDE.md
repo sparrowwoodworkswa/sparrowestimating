@@ -27,6 +27,13 @@ This folder is for estimating Sparrow Woodworks jobs. Read this file at the star
 - No AI-sounding phrasing.
 - When cleaning up my writing, keep my voice. Don't over-polish.
 
+## Brand guidelines (most current source)
+
+- The Sparrow Woodworks design system is the most current brand guide: https://claude.ai/artifact/MBY4JrHnvzZbNChLYzcDwP (README + tokens). Always check it first for visual and verbal brand, mission and values. Where any other file in this repo conflicts with it (colors, fonts, logo use, the wood accent in older proposal styles), the design system wins.
+- Mission (use this wording everywhere): "Time is the one thing none of us can get back. We respect yours by showing up prepared, communicating clearly, and building it right the first time." The presentation deck adds: "We partner with architects and homeowners to bring their vision to life with real craftsmanship, from framing to finish carpentry."
+- Values: Build better homes / Build better relationships / Build better futures, worded as in the presentation deck (https://claude.ai/artifact/FncHJiBuZ2oqs7p9emkN1p).
+- Quick rules: Inter only; black, white and one gray, no accent color; bird + "Sparrow Woodworks" lockup in documents (script logo only for shop, trucks, apparel, deck cover); sentence-case titles; phone written 206.708.5615.
+
 ## Estimating rules
 
 ### Cost codes

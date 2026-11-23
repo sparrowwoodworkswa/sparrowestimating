@@ -162,7 +162,9 @@ During lunch you're fully off duty. No work, calls or texts. If a supervisor ask
 ## 7. Pay
 
 ### Payday
-The workweek runs Sunday 12:00 a.m. through Saturday 11:59 p.m. You're paid every Friday. If Friday is a holiday, you're paid the business day before. Direct deposit is our standard. Set it up with Katrina.
+You're paid twice a month on set paydays. Katrina has the payroll calendar. If a payday falls on a weekend or holiday, you're paid the business day before. Direct deposit is our standard. Set it up with Katrina.
+
+The workweek runs Sunday 12:00 a.m. through Saturday 11:59 p.m. Overtime is figured by the workweek, not the pay period. Overtime for a week is paid on the payday for the pay period that week ends in.
 
 ### Overtime
 Non-exempt employees are paid 1.5 times their regular rate for hours worked over 40 in a workweek. Paid leave and holidays don't count toward the 40. Overtime must be approved by your supervisor in advance, but all hours worked will be paid.
@@ -189,7 +191,7 @@ Full-time employees earn PTO on every hour worked:
 - Minimum use is 1 hour.
 - PTO is paid at your base rate for the hours you would have worked.
 - PTO can't take you over 40 paid hours in a week. Unused hours go back in your bank.
-- Unused PTO is paid out when you leave only if you resign with at least two weeks' written notice and work through your notice period, or if Sparrow lays you off. Otherwise, unused PTO is not paid out.
+- Unused PTO is paid out when you leave only if you resign with at least three weeks' written notice and work through your notice period, or if Sparrow lays you off. Otherwise, unused PTO is not paid out.
 - Sick leave is a separate bank. See Section 9.
 
 ### Paid holidays
@@ -230,7 +232,7 @@ Sparrow gives 7 paid holidays a year:
 - Immigration proceedings for you or a family member.
 - Needs related to being the victim of a hate crime.
 
-**Carryover:** Up to 40 unused hours carry over to the next year, every year.
+**Carryover and when it expires:** Sick leave doesn't expire during the year, and there's no cap on how much you earn. On December 31, up to 40 unused hours carry over to the next year. Any unused hours over 40 are lost on December 31. This happens every year, so you'll always start January with up to 40 hours from the year before, plus whatever you earn in the new year. Your balance is on every pay stub, so you can plan ahead.
 
 **Notice:** For planned leave, give 10 days' notice when you can. Otherwise, tell your supervisor as soon as possible, before your shift if you can.
 
@@ -470,9 +472,9 @@ Shop, millwork and installation standards are in the **Sparrow Shop and Field St
 
 ## 20. Leaving Sparrow
 
-Please give at least two weeks' written notice. It's not required, but it's how you keep your unused PTO payout.
+Please give at least three weeks' written notice. It's not required, and either you or Sparrow can still end employment at any time. But it's how you keep your unused PTO payout.
 
-Return all Company property, including tools, keys, devices, documents and branded clothing. Your final paycheck is paid on the next regular payday. Unused PTO is paid out only if you gave at least two weeks' notice and worked through it, or were laid off (see Section 8). Sick leave is not paid out.
+Return all Company property, including tools, keys, devices, documents and branded clothing. Your final paycheck is paid on the next regular payday. Unused PTO is paid out only if you gave at least three weeks' notice and worked through it, or were laid off (see Section 8). Sick leave is not paid out.
 
 ---
 
