@@ -1,9 +1,6 @@
-# Sparrow Woodworks LLC Employee Handbook
+# Employee handbook
 
-**Version 3, Draft for Review, January 2027**
-Sparrow Woodworks LLC, PO Box 468, Indianola, WA 98342
-
----
+Sparrow Woodworks LLC · Version 3, draft for review · January 2027
 
 ## Contents
 
@@ -34,15 +31,19 @@ Sparrow Woodworks LLC, PO Box 468, Indianola, WA 98342
 
 ## 1. About Sparrow
 
-Welcome to Sparrow Woodworks. We're a general contractor and custom millwork shop in Indianola, building since 2011. Our mission is to build better homes, relationships and futures.
+Welcome to Sparrow Woodworks. Since 2011 we have built homes with architects on the West Sound. Our own carpenters, cabinetmakers and project managers stay close to the work, so the design intent survives from framing to finish.
 
-**Build Better Homes.** Quality work, sustainable practices and craftsmanship that lasts.
+### Our mission
 
-**Build Better Relationships.** Transparency, accountability and clear communication with clients, coworkers, vendors and subs.
+Time is the one thing none of us can get back. We respect yours by showing up prepared, communicating clearly, and building it right the first time. We partner with architects and homeowners to bring their vision to life with real craftsmanship, from framing to finish carpentry.
 
-**Build Better Futures.** Growth for our people, better lives for our clients, and long-term partnerships.
+### Company values
 
----
+**Build better homes.** Uncompromising quality, sustainable practices and thoughtful craftsmanship that stands the test of time. We keep improving, project to project.
+
+**Build better relationships.** Transparency, accountability and clear communication. Mutual success over transactions. Lasting partnerships with clients, employees, vendors and subcontractors, built on trust.
+
+**Build better futures.** Growth for our people in a supportive workplace, homes that improve our clients' lives, and collaborative practices that create shared, long-term success with our partners.
 
 ## 2. About This Handbook
 
@@ -527,4 +528,4 @@ I've been trained on the machines I'll use. I'll use the shop only with permissi
 
 Signature: ______________________________   Date: ______________
 
-*Emergency contact form is in the new-hire packet.*
+Emergency contact form is in the new-hire packet.
