@@ -16,7 +16,8 @@ For Mike and Derek. The draft manual follows this outline. Anything marked **[CO
 9. **Quality Control and Punch.** Self-check, shop-out check, site check, punch list, closeout.
 10. **When Something Goes Wrong.** Defects, damage, mistakes on plans, near-misses.
 11. **Checklists.** Day one, shop-out QC, delivery, end of day on site, final day.
-12. **Acknowledgment.**
+12. **Sparrow Details.** Long-term placeholder. One illustrated page per build detail, photos from our own jobs. Ground rules, template and starter list only for now.
+13. **Acknowledgment.**
 
 ## Questions for Mike
 

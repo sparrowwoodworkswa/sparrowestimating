@@ -20,7 +20,8 @@ Sparrow Woodworks LLC, PO Box 468, Indianola, WA 98342
 9. Quality Control and Punch
 10. When Something Goes Wrong
 11. Checklists
-12. Acknowledgment
+12. Sparrow Details
+13. Acknowledgment
 
 ## 0. How to Use This Manual
 
@@ -368,7 +369,62 @@ Mistakes happen. Hiding them is the problem. Speak up early and we'll fix it tog
 - [ ] Protection, tape and labels removed
 - [ ] Walked with the super
 
-## 12. Acknowledgment
+## 12. Sparrow Details
+
+*Long-term project. This section is a placeholder. Details get added over time, about one a month.*
+
+Sections 1 through 11 cover how we work. Sparrow Details covers how we build specific things. One page per detail, with photos from our own jobs.
+
+### Ground rules
+
+- Manufacturer installation instructions and the architect's drawings and specs always come first.
+- If a detail here doesn't match the drawings, talk to your PM. Any change to the architect's design goes through an RFI or other written approval.
+- Field conditions won't always match the photos. If you have to adapt a detail, ask your super or Derek first.
+- These are our details, built from our own work. Don't copy another company's drawings or text into this section.
+
+### How a detail gets made
+
+1. Pick the detail. Start with what shows up in callbacks and warranty work.
+2. The next time a crew builds it on a job, the super takes 8 to 10 photos, one per step.
+3. Derek or the super writes the captions. Katrina formats the page.
+4. The owner reviews it with the crew that built it, then it goes in the manual.
+5. Every detail gets reviewed once a year, or sooner if something fails.
+
+### Detail page template
+
+#### 12.X [Detail name]
+
+**Owner:** [name]   **Last reviewed:** [date]
+
+**Why.** Two or three sentences on what goes wrong if we don't build it this way.
+
+**Steps.**
+
+1. [Step, with photo]
+2. [Step, with photo]
+3. [Step, with photo]
+
+**Watch for.** Common mistakes.
+
+**Products.** What we use.
+
+### Starter list
+
+**[PLACEHOLDER]** To be confirmed by Mike and Derek, based on callbacks and warranty work. Nothing is written for these yet.
+
+| # | Detail | Owner |
+|---|---|---|
+| 12.1 | Cabinet install to the laser | [TBD] |
+| 12.2 | Scribing to out-of-plumb walls and uneven floors | [TBD] |
+| 12.3 | Face frame and casing joints | [TBD] |
+| 12.4 | Attaching built-ins and floating shelves | [TBD] |
+| 12.5 | Window and door install | [TBD] |
+| 12.6 | Exterior trim and siding at wall base and window heads | [TBD] |
+| 12.7 | Deck ledger | [TBD] |
+| 12.8 | Stair treads and handrail mounting | [TBD] |
+| 12.9 | Protecting a finished home during install | [TBD] |
+
+## 13. Acknowledgment
 
 I received the Sparrow Shop and Field Standards manual. I'll read it, follow it and ask when something isn't clear. I understand it isn't a contract and Sparrow can change it at any time.
 
