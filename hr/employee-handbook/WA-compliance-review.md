@@ -190,7 +190,52 @@ Why: an employee taking work away from an active Sparrow client is a duty-of-loy
 
 ---
 
-## 7. Decisions only you can make
+## 7. Tighten it up
+
+Goal: a handbook people actually read. Policy only, one place for each topic, no repeats.
+
+### Merge (same topic in several places)
+
+| Now | Merge into |
+|---|---|
+| Introduction + Who We Are & Our Mission | **About Sparrow.** Three values, one mission sentence. The mission repeats the values. |
+| ADA + Workplace Pregnancy Accommodations | **Accommodations.** Disability, pregnancy, lactation, religion. One request process (talk to Mike). |
+| Harassment + Third-Party Harassment + Workplace Bullying | **Respectful Workplace.** One definition, one short example list, one way to report, no retaliation. |
+| Exempt vs. Non-Exempt + Overtime | **Pay and Overtime.** v2 says the overtime rule twice. |
+| Conflict of Interest + Gifts + Outside Employment + Client Relationships | **Conflicts of Interest.** Four short subsections under one heading. This is the biggest trim. |
+| Safety + Incident Reporting + Fire Safety + Workers' Comp | **Safety and Injuries.** One "report it right away to your supervisor and Katrina" line instead of three. |
+| Vehicle Use + Mileage + Travel Expenses | **Vehicles and Reimbursement.** One reimbursement method (see decisions). |
+| Tools + Tool Allowance note under Benefits | **Tools.** What you bring, what Sparrow buys, the $500 allowance. |
+| Health Insurance table + Other Benefits table + Benefits at a Glance + Key Contacts | **Benefits at a Glance** (one table) and **Who to Call** (one table). Right now the same benefits appear four times, and they already disagree on carryover. |
+
+### Cut or move out
+
+| Section | Why |
+|---|---|
+| Voting Leave | Washington votes by mail and has no voting-leave law. It adds nothing. |
+| Parental Leave (8 weeks) | Replaced by PFML. |
+| Parental Leave for School Functions | Cut unless you want to keep it as a perk. |
+| Millwork Assembly, Installation & Onsite Carpentry, Receiving Goods | Move to a **Shop and Field Standards** manual. They're craft standards, not policy. |
+| Emergency Contact Form | Move to the new-hire paperwork packet. |
+| Sexual harassment example list | Trim to one line. The definition does the work. |
+| Searches, Smoke-Free | Two or three sentences each is plenty. |
+
+### Add (short, one paragraph each)
+
+| Add | Why |
+|---|---|
+| **No off-the-clock work** | "Never work off the clock. If anyone asks you to, tell Mike." This is the cheapest protection you can get against wage claims. Put it in Timekeeping. |
+| **Monitoring and privacy** | Trucks have GPS and cameras, and laptops, email and company accounts are company property. Say so once, and have people sign for it. That covers the camera disclosure in Section 2. |
+| **Stop-work authority** | Already buried in the safety bullets. Make it a headline: "Anyone can stop work if it's unsafe. No one gets in trouble for it." |
+| **Light duty / return to work** | Use L&I's Stay at Work program. It pays back part of the wages when an injured worker does light duty. That keeps people working and keeps your claim costs down. |
+| **Open door** | One line: who to talk to about any problem (Mike, or any PM if it's about Mike). This lets you cut the repeated "contact Michael Stuntz" lines. |
+| **Signature pages** | Add to the acknowledgment packet: the wage deduction authorization, vehicle camera/monitoring acknowledgment, and shop-use waiver. |
+
+Rough result: v2's PTO and safety sections stay about the same. Conduct, conflicts and benefits each shrink by half. The shop and install standards come out entirely. The handbook should come in around 12 to 15 pages before signature pages.
+
+---
+
+## 8. Decisions only you can make
 
 1. **Work hours:** 7-5 or 8-5?
 2. **PTO tiers:** keep 40/80, or add a 5-year (or 8- or 10-year) tier?
