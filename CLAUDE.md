@@ -51,6 +51,12 @@ Same deliverables and look as the Osius proposal:
 
 Proposals show the core team only unless I say otherwise.
 
+### Brand
+Always follow the current Sparrow Woodworks design system unless I say otherwise: https://claude.ai/artifact/MBY4JrHnvzZbNChLYzcDwP (read `project/README.md` and `project/tokens.json`). It overrides older brand notes, including the Osius look and the old wood accent. Short version:
+- Inter only. Black, white and one gray. No accent color, no italics, rules not boxes.
+- Documents use lockup A (`public/brand/logo-bird.png` + "Sparrow Woodworks"). The script logo is for the shop, trucks and apparel only.
+- Phone with dots: 206.708.5615.
+
 ### Markups
 Ask which fee structure applies if I haven't said.
 - Osius structure: 1.5% insurance / WA B&O + 15% fee. Sales tax looked up for the site address.

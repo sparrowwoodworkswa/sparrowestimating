@@ -1,10 +1,8 @@
-# Sparrow Shop and Field Standards
+# Shop and field standards
 
-**Version 1, Draft for Review, January 2027**
+Sparrow Woodworks · Version 1 · Draft for review · January 2027
 
-Sparrow Woodworks LLC, PO Box 468, Indianola, WA 98342
-
-*Items marked **[CONFIRM]** are open questions for Mike or Derek. Remove the marks once they're answered.*
+**NOTE:** Items marked **[CONFIRM]** are open questions for Mike or Derek. Remove the marks once they're answered.
 
 ## Contents
 
@@ -371,7 +369,7 @@ Mistakes happen. Hiding them is the problem. Speak up early and we'll fix it tog
 
 ## 12. Sparrow Details
 
-*Long-term project. This section is a placeholder. Details get added over time, about one a month.*
+**NOTE:** Long-term project. This section is a placeholder. Details get added over time, about one a month.
 
 Sections 1 through 11 cover how we work. Sparrow Details covers how we build specific things. One page per detail, with photos from our own jobs.
 
