@@ -32,7 +32,7 @@ The rest is cleanup, missing sections, and decisions only you can make. Details 
 
 | # | Section | What v2 says | Washington rule | Fix |
 |---|---|---|---|---|
-| 1 | Meal Breaks | 30-min unpaid lunch at 6+ hours | WAC 296-126-092: 30-min meal break if the shift is **more than 5 hours**, taken between the 2nd and 5th hour. A second meal break is due if someone works 3+ hours past their normal day. The break is unpaid only if the employee is fully relieved of duty. | Rewrite. See sample language in Section 6. |
+| 1 | Meal Breaks | 30-min unpaid lunch at 6+ hours | WAC 296-126-092: 30-min meal break if the shift is **more than 5 hours**, taken between the 2nd and 5th hour. A second meal break is due if someone works 3+ hours past their normal day. Lunch can be unpaid as long as the employee is fully relieved of duty. | Rewrite. Say plainly that lunch is unpaid break time and rest breaks are paid. See sample language in Section 6. |
 | 2 | Rest Breaks | Not in handbook | WAC 296-126-092: **paid 10-minute rest break per 4 hours worked**. No one goes more than 3 hours without one. | Add. This is required. |
 | 3 | Sick Leave carryover | Carries over up to 40 hrs "one year only," then use it or lose it | RCW 49.46.210: unused sick leave up to 40 hrs carries over **every** year. There's no cap on accrual during the year. | Strike "one year only." Say "Up to 40 unused hours carry over to the next year." |
 | 4 | PTO Policy intro | "Combines vacation, personal and sick leave into one program... Earned Sick Leave Law" | v2 now has a separate sick bank, which is fine. "Earned Sick Time" is Massachusetts wording. | Say "Sparrow has two banks: PTO (vacation/personal) and Washington Paid Sick Leave." |
@@ -152,9 +152,11 @@ Why: an employee taking work away from an active Sparrow client is a duty-of-loy
 ## 6. Sample language for the big fixes
 
 **Meal and Rest Breaks**
-> Non-exempt employees get a paid 10-minute rest break for every 4 hours worked, as close to the middle of each 4 hours as practical. No one should work more than 3 hours without a rest break.
+> **Rest breaks are paid.** Non-exempt employees get a paid 10-minute rest break for every 4 hours worked, as close to the middle of each 4 hours as practical. No one should work more than 3 hours without a rest break.
 >
-> If you work more than 5 hours, you get an unpaid 30-minute meal break, starting no earlier than your 2nd hour and no later than your 5th. If you work 3 or more hours past your normal shift, you get a second 30-minute meal break. You must be fully relieved of duty during a meal break. If you're asked to stay on duty, the break is paid. Record your meal break on your timesheet.
+> **Lunch is unpaid.** If you work more than 5 hours, you get a 30-minute meal break. Lunch is unpaid break time. It is not counted as hours worked and is in addition to your working hours for the day. Take it no earlier than your 2nd hour and no later than your 5th. If you work 3 or more hours past your normal shift, you get a second 30-minute unpaid meal break.
+>
+> Clock out at the start of lunch and clock back in when you return, or record it on your timesheet. During lunch you are fully off duty. No work, calls, or texts. If a supervisor asks you to stay on duty or work through lunch, that time is paid and you should record it as hours worked.
 
 **Washington Paid Sick Leave**
 > All non-exempt employees, including part-time and temporary staff, earn 1 hour of paid sick leave for every 40 hours worked, starting on day one. You can use it starting on your 90th day. Up to 40 unused hours carry over each year. Unused sick leave is not paid out when you leave. If you're rehired within 12 months, your balance comes back.
