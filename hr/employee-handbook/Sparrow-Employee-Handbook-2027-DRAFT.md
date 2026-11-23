@@ -193,7 +193,17 @@ Full-time employees earn PTO on every hour worked:
 
 ### Paid holidays
 
-New Year's Day, Memorial Day, Independence Day, Labor Day, Thanksgiving, Christmas Eve and Christmas Day.
+Sparrow gives 7 paid holidays a year:
+
+- New Year's Day
+- Memorial Day
+- Independence Day
+- Labor Day
+- Thanksgiving Day
+- Christmas Eve
+- Christmas Day
+
+**How holiday pay works:**
 
 - Full-time: 8 hours of holiday pay. Part-time: 4 hours.
 - A holiday on a weekend is observed on the nearest weekday.
@@ -274,6 +284,7 @@ Full-time employees, and part-time employees where noted, are eligible after 90 
 | Vision | VSP |
 | Retirement | Voya 401(k) after the qualifying period |
 | Cell phone allowance | For eligible employees. See Section 15. |
+| Paid holidays | 7 a year. See Section 8. |
 | Tool allowance | $500/year for full-time field employees. See Section 19. |
 | Company vehicle / laptop | At Sparrow's discretion |
 
