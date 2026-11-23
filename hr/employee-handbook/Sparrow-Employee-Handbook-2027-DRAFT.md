@@ -185,7 +185,7 @@ Full-time employees earn PTO on every hour worked:
 - Minimum use is 1 hour.
 - PTO is paid at your base rate for the hours you would have worked.
 - PTO can't take you over 40 paid hours in a week. Unused hours go back in your bank.
-- Unused PTO is paid out when you leave Sparrow.
+- Unused PTO is paid out when you leave only if you resign with at least two weeks' written notice and work through your notice period, or if Sparrow lays you off. Otherwise, unused PTO is not paid out.
 - Sick leave is a separate bank. See Section 9.
 
 ### Paid holidays
@@ -437,7 +437,7 @@ Carpenters and cabinetmakers bring their own hand tools, tool belt or apron, and
 Full-time field employees get $500 a year for tools, bought through Sparrow accounts or cards. It doesn't carry over. Amounts over $500 are deducted from your paycheck under the deduction authorization you sign at hire.
 
 ### After-hours shop use
-You can use the shop outside work hours only with permission from Mike or the shop manager. Before using it on your own, you must be trained and signed off on each machine you'll run, and sign a shop-use waiver. Personal projects are rented at $15 per hour. Sparrow's consumables are for Sparrow work only. Personal projects aren't covered by workers' comp.
+You can use the shop outside work hours only with permission from Mike or the shop manager. Before using it on your own, you must be trained and signed off on each machine you'll run, and sign a shop-use waiver. Sparrow's consumables are for Sparrow work only. Personal projects aren't covered by workers' comp.
 
 ### Work standards
 Shop, millwork and installation standards are in the **Sparrow Shop and Field Standards** manual. Know them and follow them. If something is unclear, ask.
@@ -446,9 +446,9 @@ Shop, millwork and installation standards are in the **Sparrow Shop and Field St
 
 ## 20. Leaving Sparrow
 
-Please give at least two weeks' written notice. It's a request, not a requirement.
+Please give at least two weeks' written notice. It's not required, but it's how you keep your unused PTO payout.
 
-Return all Company property, including tools, keys, devices, documents and branded clothing. Your final paycheck is paid on the next regular payday. Unused PTO is paid out. Sick leave is not.
+Return all Company property, including tools, keys, devices, documents and branded clothing. Your final paycheck is paid on the next regular payday. Unused PTO is paid out only if you gave at least two weeks' notice and worked through it, or were laid off (see Section 8). Sick leave is not paid out.
 
 ---
 
