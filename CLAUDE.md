@@ -78,6 +78,20 @@ If I give you my own estimate, finish your takeoff first, then compare. Don't ch
 - **Goth Mansion** (= Rayson remodel/addition): mid-high finish. Estimate and proposal.
 - **Forge and Make TI**: commercial tenant improvement in Poulsbo. Balance Architects. Client is the tenant, Forge and Make LLC. Nov 2026 permit set. Laid out in CSI for now; remap to Sparrow cost codes later.
 - **Bainbridge elevator addition**: small residential elevator addition. Started with a ROM from plans.
+- **Bruciato** (shop job): restaurant fit-out, Eerkes Architects, pricing set 2026.09.22. Shop ROM: Solid wood $250,326 + Ceiling $100,121 = $350,447. No install or finish, except a $40k finish lump on Solid wood (summary says none; confirm). Ceiling T&G (3,109 SF) carries 0 hours.
+- **Civility** (shop job): restaurant fit-out next to Bruciato, Eerkes Architects, pricing set 2026.10.09. The "Bar ROM" tab of Bruciato_ROM.xlsx is really Civility: $266,515 with 9.2% tax. Its tables and 2x8 fir sat outside the summed columns, so they're seeded turned off. The 14 4x4 columns and ~90 3x6 screens aren't on the Civility plans; verify.
+
+## Shop workspace (cabinetry + woodworking)
+
+The shop has its own workspace in the app at `/shop`: separate from GC estimates, same database and brand.
+
+- How the shop prices: each piece gets crew-hours by step (milling, glue-up, sizing, boring, shelves, banding, sanding, hardware, finish, install). Hours x crew x $105 shop rate. Install, packaging and transport run as a crew of 2. Plus job tasks (estimating, handling, packaging, drawings, mockups), materials, then a buffer.
+- The 30% buffer is a percentage cushion for what shop estimates miss. Keep it visible as its own line. The goal is to tighten it with actuals, so every completed job shows how much buffer it really used.
+- Timecards are logged by task, using the same step list. Only jobs marked Complete feed the actual-vs-estimate factors.
+- When the shop builds for a Sparrow GC job, the shop number goes into the GC estimate at cost (labor + materials + buffer, no tax) under 605.x / 1200.x. The GC fee and tax are applied there.
+- Rate priority is the same as the GC side: Actual > Sparrow estimate > Claude takeoff. A Claude takeoff sits beside Sparrow's estimate as its own source and never changes it.
+- Market prices are dated web checks saved to the price book as "Market (web)". Supplier quotes win.
+- Code: `src/lib/shop/` (model, data, ai, schemas, xlsx), pages in `src/app/(shop)/shop/`, actions in `src/app/shop-actions.ts`, seed in `src/db/shop-seed.ts`. The shop pages use the Sparrow design system directly (`src/app/(shop)/shop.css`): Inter, black/white/gray, rules not boxes. Light only until the `-tonal-night` logo files are in the repo.
 
 ## Sparrow Master Cost Code List
 

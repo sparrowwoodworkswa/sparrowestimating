@@ -8,6 +8,7 @@ const NAV = [
   { href: "/insights", icon: "insights", label: "Win / loss insights", match: (p: string) => p.startsWith("/insights") },
   { href: "/catalog", icon: "sell", label: "Price catalog", match: (p: string) => p.startsWith("/catalog") },
   { href: "/lessons", icon: "school", label: "What we've learned", match: (p: string) => p.startsWith("/lessons") },
+  { href: "/shop", icon: "carpenter", label: "Shop estimating", match: (p: string) => p.startsWith("/shop") },
 ];
 
 export function Shell({ children, companyName, logoUrl }: { children: React.ReactNode; companyName: string; logoUrl: string }) {

@@ -273,3 +273,140 @@ export type Lesson = typeof lessons.$inferSelect;
 export type AiRun = typeof aiRuns.$inferSelect;
 export type Settings = typeof settings.$inferSelect;
 export type PlanFile = typeof planFiles.$inferSelect;
+
+// ---------------- Shop workspace (cabinetry + woodworking) ----------------
+
+export type ShopTakeoff = {
+  summary: string;
+  sheets: string[];
+  questions: string[];
+  outOfScope: string[];
+};
+
+export const shopJobs = pgTable("shop_jobs", {
+  id: serial("id").primaryKey(),
+  name: text("name").notNull(),
+  client: text("client").notNull().default(""),
+  architect: text("architect").notNull().default(""),
+  location: text("location").notNull().default(""),
+  // estimating | bid | won | lost | production | complete
+  status: text("status").notNull().default("estimating"),
+  costYear: integer("cost_year"),
+  shopRate: doublePrecision("shop_rate").notNull().default(105),
+  bufferPct: doublePrecision("buffer_pct").notNull().default(0.3),
+  taxPct: doublePrecision("tax_pct").notNull().default(0),
+  crews: jsonb("crews").$type<Record<string, number>>().notNull().default({}),
+  basis: text("basis").notNull().default("Sparrow estimate"), // which source counts toward the job total
+  sectionCodes: jsonb("section_codes").$type<Record<string, string>>().notNull().default({}), // section -> Sparrow cost code
+  gcProjectId: integer("gc_project_id"),
+  notes: text("notes").notNull().default(""),
+  takeoffStatus: text("takeoff_status").notNull().default(""), // "" | running | done | error
+  takeoffStep: text("takeoff_step").notNull().default(""),
+  takeoffError: text("takeoff_error"),
+  takeoff: jsonb("takeoff").$type<ShopTakeoff>(),
+  takeoffStartedAt: timestamp("takeoff_started_at", { withTimezone: true }),
+  createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
+  updatedAt: timestamp("updated_at", { withTimezone: true }).defaultNow().notNull(),
+});
+
+export const shopPieces = pgTable("shop_pieces", {
+  id: serial("id").primaryKey(),
+  jobId: integer("job_id").notNull(),
+  section: text("section").notNull().default("Main"),
+  grp: text("grp").notNull().default(""),
+  description: text("description").notNull(),
+  pieceType: text("piece_type").notNull().default(""),
+  qty: doublePrecision("qty").notNull().default(1),
+  unit: text("unit").notNull().default("EA"),
+  hours: jsonb("hours").$type<Record<string, number>>().notNull().default({}), // crew-hours per task for the whole row
+  include: boolean("include").notNull().default(true),
+  source: text("source").notNull().default("Sparrow estimate"),
+  note: text("note").notNull().default(""),
+  sort: integer("sort").notNull().default(0),
+});
+
+export const shopExtras = pgTable("shop_extras", {
+  id: serial("id").primaryKey(),
+  jobId: integer("job_id").notNull(),
+  section: text("section").notNull().default("Main"),
+  task: text("task").notNull(),
+  label: text("label").notNull().default(""),
+  who: text("who").notNull().default(""),
+  hours: doublePrecision("hours").notNull().default(0),
+  crew: doublePrecision("crew").notNull().default(1),
+  rate: doublePrecision("rate"),
+  lump: doublePrecision("lump"),
+  include: boolean("include").notNull().default(true),
+  source: text("source").notNull().default("Sparrow estimate"),
+  note: text("note").notNull().default(""),
+  sort: integer("sort").notNull().default(0),
+});
+
+export const shopMaterials = pgTable("shop_materials", {
+  id: serial("id").primaryKey(),
+  jobId: integer("job_id").notNull(),
+  section: text("section").notNull().default("Main"),
+  item: text("item").notNull(),
+  qty: doublePrecision("qty").notNull().default(1),
+  unit: text("unit").notNull().default("EA"),
+  unitPrice: doublePrecision("unit_price").notNull().default(0),
+  vendor: text("vendor").notNull().default(""),
+  include: boolean("include").notNull().default(true),
+  source: text("source").notNull().default("Sparrow estimate"),
+  note: text("note").notNull().default(""),
+  sort: integer("sort").notNull().default(0),
+});
+
+/** Timecard hours and material invoices, logged by task. */
+export const shopActuals = pgTable("shop_actuals", {
+  id: serial("id").primaryKey(),
+  jobId: integer("job_id").notNull(),
+  kind: text("kind").notNull().default("labor"), // labor | material
+  workDate: text("work_date").notNull().default(""), // YYYY-MM-DD
+  task: text("task").notNull().default(""),
+  section: text("section").notNull().default(""),
+  pieceId: integer("piece_id"),
+  who: text("who").notNull().default(""),
+  hours: doublePrecision("hours").notNull().default(0), // person-hours
+  amount: doublePrecision("amount").notNull().default(0), // material $ (labor $ = hours x job rate)
+  vendor: text("vendor").notNull().default(""),
+  note: text("note").notNull().default(""),
+  source: text("source").notNull().default("Timecard"), // Timecard | Invoice | Manual
+  createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
+});
+
+/** Material price book: supplier quotes, invoices, past estimates and dated market checks. */
+export const shopPrices = pgTable("shop_prices", {
+  id: serial("id").primaryKey(),
+  item: text("item").notNull(),
+  category: text("category").notNull().default("Other"),
+  unit: text("unit").notNull().default("EA"),
+  unitPrice: doublePrecision("unit_price").notNull(),
+  low: doublePrecision("low"),
+  high: doublePrecision("high"),
+  vendor: text("vendor").notNull().default(""),
+  quoteDate: text("quote_date").notNull().default(""),
+  source: text("source").notNull().default("Quote"), // Quote | Invoice | Sparrow estimate | Market (web)
+  jobId: integer("job_id"),
+  url: text("url").notNull().default(""),
+  notes: text("notes").notNull().default(""),
+  createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
+});
+
+export const shopFiles = pgTable("shop_files", {
+  id: serial("id").primaryKey(),
+  jobId: integer("job_id").notNull(),
+  filename: text("filename").notNull(),
+  storageKey: text("storage_key").notNull(),
+  sizeBytes: integer("size_bytes").notNull(),
+  anthropicFileId: text("anthropic_file_id"),
+  uploadedAt: timestamp("uploaded_at", { withTimezone: true }).defaultNow().notNull(),
+});
+
+export type ShopJob = typeof shopJobs.$inferSelect;
+export type ShopPiece = typeof shopPieces.$inferSelect;
+export type ShopExtra = typeof shopExtras.$inferSelect;
+export type ShopMaterial = typeof shopMaterials.$inferSelect;
+export type ShopActual = typeof shopActuals.$inferSelect;
+export type ShopPrice = typeof shopPrices.$inferSelect;
+export type ShopFile = typeof shopFiles.$inferSelect;

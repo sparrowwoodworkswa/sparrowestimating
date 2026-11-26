@@ -4,6 +4,7 @@ import { drizzle as drizzlePostgres } from "drizzle-orm/postgres-js";
 import * as schema from "./schema";
 import { DDL } from "./ddl";
 import { seedIfEmpty } from "./seed";
+import { seedShopIfEmpty } from "./shop-seed";
 
 type DB = ReturnType<typeof drizzlePglite<typeof schema>>;
 
@@ -34,6 +35,7 @@ async function init(): Promise<DB> {
     db = drizzlePglite(client, { schema });
   }
   await seedIfEmpty(db);
+  await seedShopIfEmpty(db);
   return db;
 }
 

@@ -141,4 +141,116 @@ ALTER TABLE catalog ADD COLUMN IF NOT EXISTS finish_level text NOT NULL DEFAULT 
 ALTER TABLE projects ADD COLUMN IF NOT EXISTS superintendent text NOT NULL DEFAULT '';
 ALTER TABLE projects ADD COLUMN IF NOT EXISTS cost_year integer;
 ALTER TABLE projects ADD COLUMN IF NOT EXISTS alias text NOT NULL DEFAULT '';
+CREATE TABLE IF NOT EXISTS shop_jobs (
+  id serial PRIMARY KEY,
+  name text NOT NULL,
+  client text NOT NULL DEFAULT '',
+  architect text NOT NULL DEFAULT '',
+  location text NOT NULL DEFAULT '',
+  status text NOT NULL DEFAULT 'estimating',
+  cost_year integer,
+  shop_rate double precision NOT NULL DEFAULT 105,
+  buffer_pct double precision NOT NULL DEFAULT 0.3,
+  tax_pct double precision NOT NULL DEFAULT 0,
+  crews jsonb NOT NULL DEFAULT '{}',
+  basis text NOT NULL DEFAULT 'Sparrow estimate',
+  section_codes jsonb NOT NULL DEFAULT '{}',
+  gc_project_id integer,
+  notes text NOT NULL DEFAULT '',
+  takeoff_status text NOT NULL DEFAULT '',
+  takeoff_step text NOT NULL DEFAULT '',
+  takeoff_error text,
+  takeoff jsonb,
+  takeoff_started_at timestamptz,
+  created_at timestamptz NOT NULL DEFAULT now(),
+  updated_at timestamptz NOT NULL DEFAULT now()
+);
+CREATE TABLE IF NOT EXISTS shop_pieces (
+  id serial PRIMARY KEY,
+  job_id integer NOT NULL,
+  section text NOT NULL DEFAULT 'Main',
+  grp text NOT NULL DEFAULT '',
+  description text NOT NULL,
+  piece_type text NOT NULL DEFAULT '',
+  qty double precision NOT NULL DEFAULT 1,
+  unit text NOT NULL DEFAULT 'EA',
+  hours jsonb NOT NULL DEFAULT '{}',
+  include boolean NOT NULL DEFAULT true,
+  source text NOT NULL DEFAULT 'Sparrow estimate',
+  note text NOT NULL DEFAULT '',
+  sort integer NOT NULL DEFAULT 0
+);
+CREATE INDEX IF NOT EXISTS shop_pieces_job ON shop_pieces(job_id);
+CREATE TABLE IF NOT EXISTS shop_extras (
+  id serial PRIMARY KEY,
+  job_id integer NOT NULL,
+  section text NOT NULL DEFAULT 'Main',
+  task text NOT NULL,
+  label text NOT NULL DEFAULT '',
+  who text NOT NULL DEFAULT '',
+  hours double precision NOT NULL DEFAULT 0,
+  crew double precision NOT NULL DEFAULT 1,
+  rate double precision,
+  lump double precision,
+  include boolean NOT NULL DEFAULT true,
+  source text NOT NULL DEFAULT 'Sparrow estimate',
+  note text NOT NULL DEFAULT '',
+  sort integer NOT NULL DEFAULT 0
+);
+CREATE TABLE IF NOT EXISTS shop_materials (
+  id serial PRIMARY KEY,
+  job_id integer NOT NULL,
+  section text NOT NULL DEFAULT 'Main',
+  item text NOT NULL,
+  qty double precision NOT NULL DEFAULT 1,
+  unit text NOT NULL DEFAULT 'EA',
+  unit_price double precision NOT NULL DEFAULT 0,
+  vendor text NOT NULL DEFAULT '',
+  include boolean NOT NULL DEFAULT true,
+  source text NOT NULL DEFAULT 'Sparrow estimate',
+  note text NOT NULL DEFAULT '',
+  sort integer NOT NULL DEFAULT 0
+);
+CREATE TABLE IF NOT EXISTS shop_actuals (
+  id serial PRIMARY KEY,
+  job_id integer NOT NULL,
+  kind text NOT NULL DEFAULT 'labor',
+  work_date text NOT NULL DEFAULT '',
+  task text NOT NULL DEFAULT '',
+  section text NOT NULL DEFAULT '',
+  piece_id integer,
+  who text NOT NULL DEFAULT '',
+  hours double precision NOT NULL DEFAULT 0,
+  amount double precision NOT NULL DEFAULT 0,
+  vendor text NOT NULL DEFAULT '',
+  note text NOT NULL DEFAULT '',
+  source text NOT NULL DEFAULT 'Timecard',
+  created_at timestamptz NOT NULL DEFAULT now()
+);
+CREATE INDEX IF NOT EXISTS shop_actuals_job ON shop_actuals(job_id);
+CREATE TABLE IF NOT EXISTS shop_prices (
+  id serial PRIMARY KEY,
+  item text NOT NULL,
+  category text NOT NULL DEFAULT 'Other',
+  unit text NOT NULL DEFAULT 'EA',
+  unit_price double precision NOT NULL,
+  low double precision,
+  high double precision,
+  vendor text NOT NULL DEFAULT '',
+  quote_date text NOT NULL DEFAULT '',
+  source text NOT NULL DEFAULT 'Quote',
+  job_id integer,
+  url text NOT NULL DEFAULT '',
+  notes text NOT NULL DEFAULT '',
+  created_at timestamptz NOT NULL DEFAULT now()
+);
+CREATE TABLE IF NOT EXISTS shop_files (
+  id serial PRIMARY KEY,
+  job_id integer NOT NULL,
+  filename text NOT NULL,
+  storage_key text NOT NULL,
+  size_bytes integer NOT NULL,
+  anthropic_file_id text,
+  uploaded_at timestamptz NOT NULL DEFAULT now()
+);
 `;

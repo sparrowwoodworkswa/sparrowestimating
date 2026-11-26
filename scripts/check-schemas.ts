@@ -1,6 +1,7 @@
 import { betaZodOutputFormat } from "@anthropic-ai/sdk/helpers/beta/zod";
 import { AnalysisSchema, PackageResultSchema, ProposalSchema, LearnSchema } from "../src/lib/ai/schemas";
-for (const [n, s] of Object.entries({ AnalysisSchema, PackageResultSchema, ProposalSchema, LearnSchema })) {
+import { TakeoffSchema, MarketSchema } from "../src/lib/shop/schemas";
+for (const [n, s] of Object.entries({ AnalysisSchema, PackageResultSchema, ProposalSchema, LearnSchema, TakeoffSchema, MarketSchema })) {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const f = betaZodOutputFormat(s as any) as any;
   const js = JSON.stringify(f.schema ?? f);
